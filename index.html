@@ -124,6 +124,10 @@ ul.task-list li input[type="checkbox"] {
 <p>One important caveat: each show was classified as one of the three genre categories with only one exception. There is a small subset of shows in the dataset whose genre lists both Comedy and Drama, such as the show <em>The Bear</em>. <em>The Bear</em>’s genre was listed as ‘comedy drama’, and as such, it felt disingenuous to assign the show to a single bin. Therefore, if a show’s genre specifically had both of the words ‘comedy’ and ‘drama’, we classified the show as both a comedy and a drama. As we were essentially duplicating these shows, we separated the binned genres into a different table in our database so we don’t have duplicate shows in the shows table and can maintain having a single row for each show in our shows table.</p>
 <p>We also gathered information on the language of the show. As mentioned above, we only collected the ratings for the US specifically, but as we know, the US is a melting pot of different cultures and backgrounds. This meant that there were a small, but not insignificant number of shows in our dataset that are in a foreign language. So we decided to also gather language data from Wikipedia while we were gathering the genre information.</p>
 </section>
+<section id="data-ethics" class="level2">
+<h2 class="anchored" data-anchor-id="data-ethics">Data Ethics</h2>
+<p>We only looked at shows that were included in the top 10 lists calculated by Nielsen and Netflix, which does&nbsp;not paint a full picture of the streaming landscape, but rather the most popular shows in any given week. We recognize that depending on what’s released that week, if there are known and extremely popular shows with new episodes, other shows that may in any other week be included could be pushed down or off the rankings. There is also bias in the types of people that tend to subscribe to different platforms. Additionally, we want to recognize the cost of streaming services, and that they are not something everyone has access to - the cheapest plans on each service range from $5.99 (ad-supported Paramount+ or Peacock) to $15.99 (ad-free HBO Max) a month (Moses).</p>
+</section>
 </section>
 <section id="data" class="level1">
 <h1>Data</h1>
@@ -247,6 +251,12 @@ ul.task-list li input[type="checkbox"] {
 <section id="conclusions" class="level1">
 <h1>Conclusions</h1>
 <p>The question this project set out to answer was “<em>Does the release schedule of a show (weekly, in parts, or all at once) impact their staying power?</em>” We looked at multiple contributing factors, including genre and streaming platform. We found that there is a statistically significant difference in how long a show’s popularity is sustained based on the streaming platform, the genre, and the release schedule. We also found that the combination of release schedule and genre is statistically significant for a show’s popularity. Ultimately, we found that weekly releases are ideal for shows with preexisting fanbases, but are not ideal for newly released shows without a preexisting fanbase.</p>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<p>Hemingway, E. (n.d.). A quote by Ernest Hemingway. <em>Goodreads</em>. <a href="https://www.goodreads.com/quotes/9556005-every-man-has-two-deaths-when-he-is-buried-in" class="uri">https://www.goodreads.com/quotes/9556005-every-man-has-two-deaths-when-he-is-buried-in</a>&nbsp;&nbsp;</p>
+<p>Moses, C. (2023, December 29). What Your Favorite Streaming Services Will Cost You in 2024. <em>The New York Times</em>. <a href="https://www.nytimes.com/2023/12/29/business/streaming-advertising-2024-netflix-amazon-prime.html" class="uri">https://www.nytimes.com/2023/12/29/business/streaming-advertising-2024-netflix-amazon-prime.html</a>&nbsp;</p>
+<p>Nickinson, P. (2024, May 9). The 10 most popular streaming services, ranked by subscriber count. <em>Digital Trends</em>. <a href="https://www.digitaltrends.com/home-theater/most-popular-streaming-services-by-subscribers/" class="uri">https://www.digitaltrends.com/home-theater/most-popular-streaming-services-by-subscribers/</a></p>
 </section>
 
 </main>
