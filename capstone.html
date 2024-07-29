@@ -73,8 +73,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
+<section id="introduction-and-background" class="level1">
+<h1>Introduction and Background</h1>
 <p>Binge-watching has been around for almost two decades, having been popularized by the availability (and accessibility) of TV shows like <em>Grey’s Anatomy</em> and <em>Breaking Bad</em> on streaming platforms like Netflix, Hulu, and Amazon Prime Video starting in the mid- to late 2000s. However, it really took off in 2013 when Netflix began releasing original content, starting with <em>House of Cards</em> and followed later that year by <em>Orange is the New Black</em>. Netflix started the practice of releasing all episodes of a season at once, a sharp departure from the standard weekly episodes. They continue to release most of their content this way, with a few exceptions (<em>Love is Blind</em> and season 3 of <em>Bridgerton</em>, notably). The public seemed to love it because they could watch at their own pace and didn’t have to wait a week after a mid-season cliff-hanger.</p>
 <p>Shows like <em>Succession</em>, <em>The Last of Us</em>, and <em>The White Lotus</em>, all of which aired weekly on HBO at the same time they were released on HBO Max (later Max), created intense online discourse and reignited appointment television for an hour each Sunday. This provided not only a way for viewers to connect with each other, but also built momentum and caused the shows to stay in the public discourse for as many weeks as they aired.</p>
 <p>As more streaming platforms came onto the market, so did more methods of releasing original content. While some shows are still released all at once (the “binge model”), many are released weekly, with some providing two or three episodes to start before transitioning to one episode a week. Some shows will also be released in batches of two episodes every week. For example, all 3 seasons of The Bear on Hulu have been released all at once, while season 1 of Shogun premiered with the first two episodes at once and then weekly.</p>
@@ -179,7 +179,6 @@ Another variable we were interested in was the genre of a show, and how the show
 <em><strong>Figure 10</strong>: Weibull Model of Survival Probability by Genre overlaid on KM Curve of Survival Probability by Genre</em></p>
 <p>In <strong>Figure 10</strong>, the dotted line represents the observed survival time in the dataset, and the bold line represents the predicted survival times by our Weibull model. When creating our Weibull model, we decided to stratify by genre in order to ensure that each curve was as accurate as possible. Looking at the p values for each genre in our model, we have the following table (<strong>Figure 11</strong>).</p>
 <table class="caption-top table">
-<caption><em><strong>Figure 11</strong>: P Values of each genre category in Weibull Model of Survival Probability by Genre</em></caption>
 <thead>
 <tr class="header">
 <th>Genre</th>
@@ -201,6 +200,7 @@ Another variable we were interested in was the genre of a show, and how the show
 </tr>
 </tbody>
 </table>
+<p><em><strong>Figure 11</strong>: P Values of each genre category in Weibull Model of Survival Probability by Genre</em></p>
 <p>This confirms that each genre is statistically significantly different in their survival probabilities.</p>
 </section>
 <section id="show-release-schedule" class="level3">
@@ -235,6 +235,7 @@ Another variable we were interested in was the genre of a show, and how the show
 </section>
 <section id="conclusions" class="level1">
 <h1>Conclusions</h1>
+<p>The question this project set out to answer was “<em>Does the release schedule of a show (weekly, in parts, or all at once) impact their staying power?</em>” We looked at multiple contributing factors, including genre and streaming platform. We found that there is a statistically significant difference in how long a show’s popularity is sustained based on the streaming platform, the genre, and the release schedule. We also found that the combination of release schedule and genre is statistically significant for a show’s popularity. Ultimately, we found that weekly releases are ideal for shows with preexisting fanbases, but are not ideal for newly released shows without a preexisting fanbase.</p>
 </section>
 
 </main>
