@@ -1,1 +1,11 @@
 # Conclusions
+
+The question this project set out to answer was “*Does the release schedule of a show (weekly, in parts, or all at once) impact their staying power?*” We looked at multiple contributing factors, including genre and streaming platform. We found that there is a statistically significant difference in how long a show’s popularity is sustained based on the streaming platform, the genre, and the release schedule. We also found that the combination of release schedule and genre is statistically significant for a show’s popularity. Ultimately, we found that weekly releases are ideal for shows with preexisting fanbases, but are not ideal for newly released shows without a preexisting fanbase.
+
+# References
+
+Hemingway, E. (n.d.). A quote by Ernest Hemingway. *Goodreads*. <https://www.goodreads.com/quotes/9556005-every-man-has-two-deaths-when-he-is-buried-in>  
+
+Moses, C. (2023, December 29). What Your Favorite Streaming Services Will Cost You in 2024. *The New York Times*. <https://www.nytimes.com/2023/12/29/business/streaming-advertising-2024-netflix-amazon-prime.html> 
+
+Nickinson, P. (2024, May 9). The 10 most popular streaming services, ranked by subscriber count. *Digital Trends*. <https://www.digitaltrends.com/home-theater/most-popular-streaming-services-by-subscribers/>
