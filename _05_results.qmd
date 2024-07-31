@@ -25,7 +25,7 @@ The breakdown of shows by their release schedule is shown in **Figure 4**.
 
 The breakdown of shows is heavily skewed towards the ‘all at once’ shows. This is mainly due to the dominance of Netflix. Breaking down the release schedules by streaming platform paints a very clear picture (**Figure 5**).
 
-![](images/tv_shows_by_platform.png){width="780"} *\
+![](images/shows_by_schedule_platform.png){width="780"} *\
 **Figure 5**: Breakdown of shows in dataset based on release schedule and streaming platform\**\
 *\*the shows whose release schedule changed were classified as ‘Changed’ on this graphic*
 
@@ -127,7 +127,7 @@ For the platforms that had shows released in all three categories, interestingly
 
 As with our other Kaplan-Meier curves, we performed a log rank test to determine if the results that we are seeing are in fact statistically significant. The log rank test gave us a p value of **\<2e-16**, so we can confirm that these results are statistically significant.
 
-### Machine Learning\*\*\* 
+## Machine Learning\*\*\* 
 
 *Note: Section is still a WIP, we hope to improve our model before the final presentation*
 
