@@ -97,8 +97,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#show-release-schedule" id="toc-show-release-schedule" class="nav-link" data-scroll-target="#show-release-schedule">Show Release Schedule</a></li>
   <li><a href="#show-release-schedule-and-genre" id="toc-show-release-schedule-and-genre" class="nav-link" data-scroll-target="#show-release-schedule-and-genre">Show Release Schedule and Genre</a></li>
   <li><a href="#show-release-schedule-and-streaming-platform" id="toc-show-release-schedule-and-streaming-platform" class="nav-link" data-scroll-target="#show-release-schedule-and-streaming-platform">Show Release Schedule and Streaming Platform</a></li>
-  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning">Machine Learning***</a></li>
   </ul></li>
+  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning">Machine Learning***</a></li>
   </ul></li>
   <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
@@ -115,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
 <h1>Introduction and Background</h1>
 <p>Binge-watching has been around for almost two decades, having been popularized by the availability (and accessibility) of TV shows like <em>Grey’s Anatomy</em> and <em>Breaking Bad</em> on streaming platforms like Netflix, Hulu, and Amazon Prime Video starting in the mid- to late 2000s. However, it really took off in 2013 when Netflix began releasing original content, starting with <em>House of Cards</em> and followed later that year by <em>Orange is the New Black</em>. Netflix started the practice of releasing all episodes of a season at once, a sharp departure from the standard weekly episodes. They continue to release most of their content this way, with a few exceptions (<em>Love is Blind</em> and season 3 of <em>Bridgerton</em>, notably). The public seemed to love it because they could watch at their own pace and didn’t have to wait a week after a mid-season cliff-hanger.</p>
 <p>Shows like <em>Succession</em>, <em>The Last of Us</em>, and <em>The White Lotus</em>, all of which aired weekly on HBO at the same time they were released on HBO Max (later Max), created intense online discourse and reignited appointment television for an hour each Sunday. This provided not only a way for viewers to connect with each other, but also built momentum and caused the shows to stay in the public discourse for as many weeks as they aired.</p>
-<p>As more streaming platforms came onto the market, so did more methods of releasing original content. While some shows are still released all at once (the “binge model”), many are released weekly, with some providing two or three episodes to start before transitioning to one episode a week. Some shows will also be released in batches of two episodes every week. For example, all 3 seasons of The Bear on Hulu have been released all at once, while season 1 of Shogun premiered with the first two episodes at once and then weekly.</p>
+<p>As more streaming platforms came onto the market, so did more methods of releasing original content. While some shows are still released all at once (the “binge model”), many are released weekly, with some providing two or three episodes to start before transitioning to one episode a week. Some shows will also be released in batches of two episodes every week. For example, all 3 seasons of <em>The Bear</em> on Hulu have been released all at once, while season 1 of <em>Shogun</em> premiered with the first two episodes at once and then weekly.</p>
 <p>With the rise of social media, platforms like Twitter became an important place to discuss TV shows with fellow viewers and get recommendations, later followed by TikTok. This project will seek to answer the question “<em>Does the release schedule of a show (weekly, in parts, or all at once) impact their staying power?</em>” Of particular interest is how shows perform on weekly Nielsen charts - both overall and by streaming platform - and their interest over time on Google Trends.</p>
 <section id="hypotheses" class="level2">
 <h2 class="anchored" data-anchor-id="hypotheses">Hypotheses</h2>
@@ -201,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
 <strong>Figure 4</strong>: Breakdown of shows in dataset based on release schedule</em>*<br>
 <em>*the shows whose release schedule changed were classified as ‘Changed’ on this graphic</em></p>
 <p>The breakdown of shows is heavily skewed towards the ‘all at once’ shows. This is mainly due to the dominance of Netflix. Breaking down the release schedules by streaming platform paints a very clear picture (<strong>Figure 5</strong>).</p>
-<p><img src="images/tv_shows_by_platform.png" class="img-fluid" width="780"> <em><br>
+<p><img src="images/shows_by_schedule_platform.png" class="img-fluid" width="780"> <em><br>
 <strong>Figure 5</strong>: Breakdown of shows in dataset based on release schedule and streaming platform*</em><br>
 <em>*the shows whose release schedule changed were classified as ‘Changed’ on this graphic</em></p>
 <p>As <strong>Figure 5</strong> shows, Netflix is far and away the reason why ‘all at once’ shows dominate the dataset, having over 300 shows with that release schedule. The other streaming platforms have much more of an even distribution, but we will need to be cognizant of the Netflix domination during our analysis.</p>
@@ -288,8 +288,9 @@ ul.task-list li input[type="checkbox"] {
 <p>For the platforms that had shows released in all three categories, interestingly, the ‘ideal’ release schedules were different for basically every platform. For Apple TV+, weekly released shows sustained their popularity longest; for Hulu and Netflix, shows with hybrid release schedules sustained their popularity longest; and for Disney+, shows released all-at-once sustained their popularity longest. This offers some interesting insights into what release schedule the various streaming platforms think is the best for building up a show’s popularity.</p>
 <p>As with our other Kaplan-Meier curves, we performed a log rank test to determine if the results that we are seeing are in fact statistically significant. The log rank test gave us a p value of <strong>&lt;2e-16</strong>, so we can confirm that these results are statistically significant.</p>
 </section>
-<section id="machine-learning" class="level3">
-<h3 class="anchored" data-anchor-id="machine-learning">Machine Learning***</h3>
+</section>
+<section id="machine-learning" class="level2">
+<h2 class="anchored" data-anchor-id="machine-learning">Machine Learning***</h2>
 <p><em>Note: Section is still a WIP, we hope to improve our model before the final presentation</em></p>
 <p>As we were looking at the yearly ratings table, we came across an interesting find: of all of the shows in the dataset, 9.38% (61/650) had their release schedules changed at some point in the show’s lifetime. Meaning, the show had multiple different release schedules, such as changing from releasing all-at-once to a hybrid release schedule. But of the shows that appeared in the yearly top 10 rankings for each streaming platform, 22% (55/250) had their release schedules changed.</p>
 <p>It’s important to note that there were not 55 unique shows whose schedules were changed in the Yearly Top 10s for Individual Streaming Platforms. Rather, there were 33 unique releases that appeared on a Yearly Top 10 whose schedules changed. The rest of the 55 number came from shows that appeared on the Yearly Top 10 ranking for multiple years. An example of this is the show Reacher, which appeared on the Amazon Prime Video Yearly Top 10 rankings of 2022, 2023, and 2024.</p>
@@ -305,7 +306,6 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="images/machine_learning_model.png" class="img-fluid" width="493"><em><br>
 <strong>Figure 15</strong>: Confusion Matrix of XGBoost model; Label 0 = Show did not appear in Yearly Top 10; Label 1 = Show did appear in Yearly Top 10</em></p>
 <p>Our model does a wonderful job of predicting shows that will NOT be in a Yearly Top 10 Ranking, but does a much worse job of predicting shows that WILL be in a Yearly Top 10 Ranking. This is likely due, at least in part, to the fact that there is a comparatively small number of shows that appeared in a Yearly Top 10 Ranking in our testing dataset. Additionally, we do not have any variables that describe the quality of the show; including the critical reception of the show would be another variable we could include that would likely help our model fine tune its performance and increase our overall accuracy.</p>
-</section>
 </section>
 </section>
 <section id="conclusions" class="level1">
