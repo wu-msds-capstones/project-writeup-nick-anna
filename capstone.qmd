@@ -10,6 +10,7 @@ format:
     theme:
       light: lightly
       dark: darkly
+toc: true
 ---
 
 {{< include _01_intro.qmd >}}
