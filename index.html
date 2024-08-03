@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="capstone_files/libs/clipboard/clipboard.min.js"></script>
@@ -190,7 +210,7 @@ ul.task-list li input[type="checkbox"] {
 <p>After gathering all of the data we listed above, we ended up with a dataset that totalled 650 TV shows that were original content on a streaming platform. The breakdown of the shows by streaming platform is in <strong>Figure 2</strong>.</p>
 <p><img src="images/tv_shows_by_platform.png" class="img-fluid" width="780"><br>
 <em><strong>Figure 2</strong>: Breakdown of shows in dataset based on Streaming Platform</em></p>
-<p>Looking at the breakdown of shows, it is clear to see that Netflix has considerably more shows in the dataset than any other streaming platform; in fact, it has more than all other platforms combined. This is due to two main reasons. First, Netflix’s Weekly Top 10 data covers a timeframe of 3.5 years, whereas the other platforms Weekly Top 10 data covers around 0.75 years. Therefore, we have an additional 2+ years worth of data for specifically Netflix shows than the other streaming platforms, leading to more shows. Second, Netflix is the most popular streaming platform, and as such, both has the funding to make much more original content than its counterparts and dominates the combined streaming ratings on Nielsen. According to DigitalTrends, Netflix has 270 million monthly subscribers, whereas Hulu, Max, Paramount+, and Apple TV+ all have under 100 million subscribers (Nickinson, 2024). That large of a difference in revenue allows Netflix to create more original content than its competitors. Additionally, as we were only gathering data for shows that appeared on a top 10 list, Netflix’s large subscriber base helped them dominate the Nielsen rankings. And, perhaps most obviously, Netflix is the oldest streaming platform, having been launched in 2007 <span class="citation" data-cites="barnes2019">[@barnes2019]</span>. As it is the oldest streaming service, it has also had the most time to create original content.</p>
+<p>Looking at the breakdown of shows, it is clear to see that Netflix has considerably more shows in the dataset than any other streaming platform; in fact, it has more than all other platforms combined. This is due to two main reasons. First, Netflix’s Weekly Top 10 data covers a timeframe of 3.5 years, whereas the other platforms Weekly Top 10 data covers around 0.75 years. Therefore, we have an additional 2+ years worth of data for specifically Netflix shows than the other streaming platforms, leading to more shows. Second, Netflix is the most popular streaming platform, and as such, both has the funding to make much more original content than its counterparts and dominates the combined streaming ratings on Nielsen. According to DigitalTrends, Netflix has 270 million monthly subscribers, whereas Hulu, Max, Paramount+, and Apple TV+ all have under 100 million subscribers (Nickinson, 2024). That large of a difference in revenue allows Netflix to create more original content than its competitors. Additionally, as we were only gathering data for shows that appeared on a top 10 list, Netflix’s large subscriber base helped them dominate the Nielsen rankings. And, perhaps most obviously, Netflix is the oldest streaming platform, having been launched in 2007 <span class="citation" data-cites="barnes2019">(<a href="#ref-barnes2019" role="doc-biblioref">Barnes, 2019</a>)</span>. As it is the oldest streaming service, it has also had the most time to create original content.</p>
 <p>The breakdown of shows by binned genre is as follows (<strong>Figure 3</strong>).</p>
 <p><img src="images/tv_shows_by_genre.png" class="img-fluid" width="780"><br>
 <em><strong>Figure 3</strong>: Breakdown of shows in dataset based on binned genre*</em><br>
@@ -314,19 +334,24 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="references" class="level1">
 <h1>References</h1>
-<p><span class="citation" data-cites="article">@article</span>{barnes2019, author = {Barnes, B.}, title = {The streaming era has finally arrived. everything is about to change}, journal = {The New York Times}, year = {2019}, month = {November}, day = {18}, url = {https://www.nytimes.com/2019/11/18/business/media/streaming-hollywood-revolution.html} }</p>
-<p><span class="citation" data-cites="misc">@misc</span>{hemingway, author = {Hemingway, E.}, title = {A quote by Ernest Hemingway}, year = {n.d.}, url = {https://www.goodreads.com/quotes/9556005-every-man-has-two-deaths-when-he-is-buried-in} }</p>
-<p><span class="citation" data-cites="article">@article</span>{mcfarland2024, author = {McFarland, M.}, title = {Dissecting the frustration and confusion of the “Bridgerton” split season}, journal = {Salon}, year = {2024}, month = {June}, day = {10}, url = {https://www.salon.com/2024/06/10/bridgerton-split-season-3/} }</p>
-<p><span class="citation" data-cites="article">@article</span>{molla2020, author = {Molla, R. and Kafka, P.}, title = {How Netflix made Breaking Bad a hit — and why that won’t happen again}, journal = {Vox}, year = {2020}, month = {July}, day = {14}, url = {https://www.vox.com/recode/2020/7/14/21312595/netflix-breaking-bad-podcast-streaming-land-of-the-giants} }</p>
-<p><span class="citation" data-cites="article">@article</span>{moses2023, author = {Moses, C.}, title = {What Your Favorite Streaming Services Will Cost You in 2024}, journal = {The New York Times}, year = {2023}, month = {December}, day = {29}, url = {https://www.nytimes.com/2023/12/29/business/streaming-advertising-2024-netflix-amazon-prime.html} }</p>
-<p><span class="citation" data-cites="article">@article</span>{nickinson2024, author = {Nickinson, P.}, title = {The 10 most popular streaming services, ranked by subscriber count}, journal = {Digital Trends}, year = {2024}, month = {May}, day = {9}, url = {https://www.digitaltrends.com/home-theater/most-popular-streaming-services-by-subscribers/} }</p>
-<p><span class="citation" data-cites="article">@article</span>{press2021, author = {Press, J.}, title = {One Episode at a Time, Please: Is a Binge Backlash Brewing?}, journal = {Vanity Fair}, year = {2021}, month = {May}, day = {14}, url = {https://www.vanityfair.com/hollywood/2021/05/tv-binge-vs-episode-by-episode-backlash} }</p>
-<p><span class="citation" data-cites="article">@article</span>{rumble2018, author = {Rumble, T.}, title = {7 shows that helped make Netflix so popular}, journal = {BBC}, year = {2018}, month = {July}, day = {18}, url = {https://www.bbc.com/news/entertainment-arts-44870538} }</p>
-<p><span class="citation" data-cites="article">@article</span>{sutton2023, author = {Sutton, K.}, title = {HBO’s Sunday night shows are more important than ever}, journal = {Marketing Brew}, year = {2023}, month = {March}, day = {31}, url = {https://www.marketingbrew.com/stories/2023/03/31/hbo-s-sunday-night-shows-are-more-important-than-ever} }</p>
-<p><span class="citation" data-cites="article">@article</span>{thomas2021, author = {Thomas, K. and Gennis, S.}, title = {The great binge-watches of the streaming era}, journal = {Polygon}, year = {2021}, month = {June}, day = {1}, url = {https://www.polygon.com/22417317/best-tv-shows-binge-watch} }</p>
+<p><span class="citation" data-cites="article">(<a href="#ref-article" role="doc-biblioref"><strong>article?</strong></a>)</span>{barnes2019, author = {Barnes, B.}, title = {The streaming era has finally arrived. everything is about to change}, journal = {The New York Times}, year = {2019}, month = {November}, day = {18}, url = {https://www.nytimes.com/2019/11/18/business/media/streaming-hollywood-revolution.html} }</p>
+<p><span class="citation" data-cites="misc">(<a href="#ref-misc" role="doc-biblioref"><strong>misc?</strong></a>)</span>{hemingway, author = {Hemingway, E.}, title = {A quote by Ernest Hemingway}, year = {n.d.}, url = {https://www.goodreads.com/quotes/9556005-every-man-has-two-deaths-when-he-is-buried-in} }</p>
+<p><span class="citation" data-cites="article">(<a href="#ref-article" role="doc-biblioref"><strong>article?</strong></a>)</span>{mcfarland2024, author = {McFarland, M.}, title = {Dissecting the frustration and confusion of the “Bridgerton” split season}, journal = {Salon}, year = {2024}, month = {June}, day = {10}, url = {https://www.salon.com/2024/06/10/bridgerton-split-season-3/} }</p>
+<p><span class="citation" data-cites="article">(<a href="#ref-article" role="doc-biblioref"><strong>article?</strong></a>)</span>{molla2020, author = {Molla, R. and Kafka, P.}, title = {How Netflix made Breaking Bad a hit — and why that won’t happen again}, journal = {Vox}, year = {2020}, month = {July}, day = {14}, url = {https://www.vox.com/recode/2020/7/14/21312595/netflix-breaking-bad-podcast-streaming-land-of-the-giants} }</p>
+<p><span class="citation" data-cites="article">(<a href="#ref-article" role="doc-biblioref"><strong>article?</strong></a>)</span>{moses2023, author = {Moses, C.}, title = {What Your Favorite Streaming Services Will Cost You in 2024}, journal = {The New York Times}, year = {2023}, month = {December}, day = {29}, url = {https://www.nytimes.com/2023/12/29/business/streaming-advertising-2024-netflix-amazon-prime.html} }</p>
+<p><span class="citation" data-cites="article">(<a href="#ref-article" role="doc-biblioref"><strong>article?</strong></a>)</span>{nickinson2024, author = {Nickinson, P.}, title = {The 10 most popular streaming services, ranked by subscriber count}, journal = {Digital Trends}, year = {2024}, month = {May}, day = {9}, url = {https://www.digitaltrends.com/home-theater/most-popular-streaming-services-by-subscribers/} }</p>
+<p><span class="citation" data-cites="article">(<a href="#ref-article" role="doc-biblioref"><strong>article?</strong></a>)</span>{press2021, author = {Press, J.}, title = {One Episode at a Time, Please: Is a Binge Backlash Brewing?}, journal = {Vanity Fair}, year = {2021}, month = {May}, day = {14}, url = {https://www.vanityfair.com/hollywood/2021/05/tv-binge-vs-episode-by-episode-backlash} }</p>
+<p><span class="citation" data-cites="article">(<a href="#ref-article" role="doc-biblioref"><strong>article?</strong></a>)</span>{rumble2018, author = {Rumble, T.}, title = {7 shows that helped make Netflix so popular}, journal = {BBC}, year = {2018}, month = {July}, day = {18}, url = {https://www.bbc.com/news/entertainment-arts-44870538} }</p>
+<p><span class="citation" data-cites="article">(<a href="#ref-article" role="doc-biblioref"><strong>article?</strong></a>)</span>{sutton2023, author = {Sutton, K.}, title = {HBO’s Sunday night shows are more important than ever}, journal = {Marketing Brew}, year = {2023}, month = {March}, day = {31}, url = {https://www.marketingbrew.com/stories/2023/03/31/hbo-s-sunday-night-shows-are-more-important-than-ever} }</p>
+<p><span class="citation" data-cites="article">(<a href="#ref-article" role="doc-biblioref"><strong>article?</strong></a>)</span>{thomas2021, author = {Thomas, K. and Gennis, S.}, title = {The great binge-watches of the streaming era}, journal = {Polygon}, year = {2021}, month = {June}, day = {1}, url = {https://www.polygon.com/22417317/best-tv-shows-binge-watch} }</p>
+
 </section>
 
-</main>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-barnes2019" class="csl-entry" role="listitem">
+Barnes, B. (2019). The streaming era has finally arrived. Everything is about to change. <em>The New York Times</em>. <a href="https://www.nytimes.com/2019/11/18/business/media/streaming-hollywood-revolution.html">https://www.nytimes.com/2019/11/18/business/media/streaming-hollywood-revolution.html</a>
+</div>
+</div></section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
