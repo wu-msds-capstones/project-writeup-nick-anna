@@ -11,6 +11,7 @@ format:
       light: lightly
       dark: darkly
 toc: true
+bibliography: references.bib
 csl: apa.csl
 ---
 
