@@ -106,7 +106,21 @@ div.csl-indent {
   <li><a href="#show-genre-and-language-information" id="toc-show-genre-and-language-information" class="nav-link" data-scroll-target="#show-genre-and-language-information">Show Genre and Language Information</a></li>
   <li><a href="#data-ethics" id="toc-data-ethics" class="nav-link" data-scroll-target="#data-ethics">Data Ethics</a></li>
   </ul></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
+  <ul class="collapse">
+  <li><a href="#data-dictionary" id="toc-data-dictionary" class="nav-link" data-scroll-target="#data-dictionary">Data Dictionary</a>
+  <ul class="collapse">
+  <li><a href="#table-1-shows" id="toc-table-1-shows" class="nav-link" data-scroll-target="#table-1-shows">Table 1: shows</a></li>
+  <li><a href="#table-2-gtrends" id="toc-table-2-gtrends" class="nav-link" data-scroll-target="#table-2-gtrends">Table 2: gtrends</a></li>
+  <li><a href="#table-3-nielsenratings" id="toc-table-3-nielsenratings" class="nav-link" data-scroll-target="#table-3-nielsenratings">Table 3: nielsenratings</a></li>
+  <li><a href="#table-4-reaperratings" id="toc-table-4-reaperratings" class="nav-link" data-scroll-target="#table-4-reaperratings">Table 4: reaperratings</a></li>
+  <li><a href="#table-5-yearlyratings" id="toc-table-5-yearlyratings" class="nav-link" data-scroll-target="#table-5-yearlyratings">Table 5: yearlyratings</a></li>
+  <li><a href="#table-6-netflixtop10" id="toc-table-6-netflixtop10" class="nav-link" data-scroll-target="#table-6-netflixtop10">Table 6: netflixtop10</a></li>
+  <li><a href="#table-7-release_info" id="toc-table-7-release_info" class="nav-link" data-scroll-target="#table-7-release_info">Table 7: release_info</a></li>
+  <li><a href="#table-8-binned_genres" id="toc-table-8-binned_genres" class="nav-link" data-scroll-target="#table-8-binned_genres">Table 8: binned_genres</a></li>
+  <li><a href="#table-9-platforms" id="toc-table-9-platforms" class="nav-link" data-scroll-target="#table-9-platforms">Table 9: platforms</a></li>
+  </ul></li>
+  </ul></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
   <ul class="collapse">
   <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics">Descriptive Statistics</a></li>
@@ -196,11 +210,461 @@ div.csl-indent {
 <p>The way that we structured our database tables is shown in the Entity Relationship Diagram of <strong>Figure 1</strong>.</p>
 <p><a href="images/erd.png"><img src="images/erd.png" class="img-fluid" width="780" alt="ERD"></a><br>
 <em><strong>Figure 1</strong>: ERD of Database Design and Structure</em></p>
+<section id="data-dictionary" class="level2">
+<h2 class="anchored" data-anchor-id="data-dictionary">Data Dictionary</h2>
+<section id="table-1-shows" class="level3">
+<h3 class="anchored" data-anchor-id="table-1-shows">Table 1: shows</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 45%">
+<col style="width: 12%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Column Name</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>id</code></td>
+<td>Unique identifier for the TV show</td>
+<td>Integer</td>
+<td>28</td>
+</tr>
+<tr class="even">
+<td><code>name</code></td>
+<td>Name of the show</td>
+<td>Text</td>
+<td>JuryDuty</td>
+</tr>
+<tr class="odd">
+<td><code>platform_id</code></td>
+<td>Unique identifier for the streaming platform</td>
+<td>Integer</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td><code>tv_or_movie</code></td>
+<td>Whether the content was a TV show or movie</td>
+<td>Text</td>
+<td>TV</td>
+</tr>
+<tr class="odd">
+<td><code>genre</code></td>
+<td>Genre of the show</td>
+<td>Text</td>
+<td>Mockumentary</td>
+</tr>
+<tr class="even">
+<td><code>miniseries</code></td>
+<td>Whether it was a miniseries or not</td>
+<td>Text</td>
+<td>N</td>
+</tr>
+<tr class="odd">
+<td><code>foreign_language</code></td>
+<td>Whether it was in a foreign language or not</td>
+<td>Text</td>
+<td>N</td>
+</tr>
+<tr class="even">
+<td><code>original_content</code></td>
+<td>Whether it was original content or not</td>
+<td>Boolean</td>
+<td>Y</td>
+</tr>
+<tr class="odd">
+<td><code>notes</code></td>
+<td>Any notes</td>
+<td>Text</td>
+<td>Freevee</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="table-2-gtrends" class="level3">
+<h3 class="anchored" data-anchor-id="table-2-gtrends">Table 2: gtrends</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 45%">
+<col style="width: 12%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Column Name</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>show_id</code></td>
+<td>Unique identifier for the TV show</td>
+<td>Integer</td>
+<td>28</td>
+</tr>
+<tr class="even">
+<td><code>date</code></td>
+<td>Date of the pulled Google Trends number</td>
+<td>Date</td>
+<td>2023-05-07</td>
+</tr>
+<tr class="odd">
+<td><code>rating</code></td>
+<td>Google Trends rating (0-100)</td>
+<td>Integer</td>
+<td>73</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="table-3-nielsenratings" class="level3">
+<h3 class="anchored" data-anchor-id="table-3-nielsenratings">Table 3: nielsenratings</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 45%">
+<col style="width: 12%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Column Name</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>date</code></td>
+<td>Date of the rating</td>
+<td>Date</td>
+<td>2021-09-26</td>
+</tr>
+<tr class="even">
+<td><code>show_id</code></td>
+<td>Unique identifier for the TV show</td>
+<td>Integer</td>
+<td>108</td>
+</tr>
+<tr class="odd">
+<td><code>rank</code></td>
+<td>Rank for that week (1-10)</td>
+<td>Text</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td><code>episode_count</code></td>
+<td>Number of episodes at the time of the rating</td>
+<td>Integer</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td><code>minutes_watched</code></td>
+<td>Total minutes viewed by persons 2+</td>
+<td>Text</td>
+<td>311000000</td>
+</tr>
+<tr class="even">
+<td><code>platform_id</code></td>
+<td>Unique identifier for the streaming platform</td>
+<td>Integer</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="table-4-reaperratings" class="level3">
+<h3 class="anchored" data-anchor-id="table-4-reaperratings">Table 4: reaperratings</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 45%">
+<col style="width: 12%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Column Name</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>date</code></td>
+<td>Date of the rating</td>
+<td>Date</td>
+<td>2023-11-19</td>
+</tr>
+<tr class="even">
+<td><code>show_id</code></td>
+<td>Unique identifier for the TV show</td>
+<td>Integer</td>
+<td>108</td>
+</tr>
+<tr class="odd">
+<td><code>rank</code></td>
+<td>Rank for that week (1-10)</td>
+<td>Text</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td><code>platform_id</code></td>
+<td>Unique identifier for the streaming platform</td>
+<td>Integer</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td><code>runtime</code></td>
+<td>Runtime of the show at the time of the rating</td>
+<td>Integer</td>
+<td>1471</td>
+</tr>
+<tr class="even">
+<td><code>episode_count</code></td>
+<td>Number of episodes at the time of the rating</td>
+<td>Integer</td>
+<td>34</td>
+</tr>
+<tr class="odd">
+<td><code>minutes_watched</code></td>
+<td>Total minutes viewed by persons 2+</td>
+<td>Text</td>
+<td>150000000</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="table-5-yearlyratings" class="level3">
+<h3 class="anchored" data-anchor-id="table-5-yearlyratings">Table 5: yearlyratings</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 45%">
+<col style="width: 12%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Column Name</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>year</code></td>
+<td>Year of the rating</td>
+<td>Integer</td>
+<td>2022</td>
+</tr>
+<tr class="even">
+<td><code>show_id</code></td>
+<td>Unique identifier for the TV show</td>
+<td>Integer</td>
+<td>108</td>
+</tr>
+<tr class="odd">
+<td><code>rank</code></td>
+<td>Rank for that week (1-10)</td>
+<td>Integer</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td><code>platform_id</code></td>
+<td>Unique identifier for the streaming platform</td>
+<td>Integer</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td><code>rating_value_score</code></td>
+<td>Score calculated based on daily position in chart</td>
+<td>Integer</td>
+<td>307</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="table-6-netflixtop10" class="level3">
+<h3 class="anchored" data-anchor-id="table-6-netflixtop10">Table 6: netflixtop10</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 45%">
+<col style="width: 12%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Column Name</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>show_id</code></td>
+<td>Unique identifier for the TV show</td>
+<td>Integer</td>
+<td>567</td>
+</tr>
+<tr class="even">
+<td><code>date</code></td>
+<td>Date of the rating</td>
+<td>Integer</td>
+<td>2021-07-18</td>
+</tr>
+<tr class="odd">
+<td><code>rank</code></td>
+<td>Rank for that week (1-10)</td>
+<td>Integer</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><code>weeks_in_top10</code></td>
+<td>Weeks the title has been in top 10</td>
+<td>Integer</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td><code>season_title</code></td>
+<td>Name of the season</td>
+<td>Text</td>
+<td>Never Have I Ever: Season 2</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="table-7-release_info" class="level3">
+<h3 class="anchored" data-anchor-id="table-7-release_info">Table 7: release_info</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 45%">
+<col style="width: 12%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Column Name</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>show_id</code></td>
+<td>Unique identifier for the TV show</td>
+<td>Integer</td>
+<td>28</td>
+</tr>
+<tr class="even">
+<td><code>release_schedule</code></td>
+<td>Release schedule of the show</td>
+<td>Text</td>
+<td>first four episodes at once, then batches</td>
+</tr>
+<tr class="odd">
+<td><code>season_number</code></td>
+<td>Season of the show</td>
+<td>Integer</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td><code>binned_release</code></td>
+<td>Binned release schedule</td>
+<td>Text</td>
+<td>hybrid</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="table-8-binned_genres" class="level3">
+<h3 class="anchored" data-anchor-id="table-8-binned_genres">Table 8: binned_genres</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 45%">
+<col style="width: 12%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Column Name</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>show_id</code></td>
+<td>Unique identifier for the TV show</td>
+<td>Integer</td>
+<td>567</td>
+</tr>
+<tr class="even">
+<td><code>binned_genre</code></td>
+<td>Binned genre</td>
+<td>Text</td>
+<td>comedy</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="table-9-platforms" class="level3">
+<h3 class="anchored" data-anchor-id="table-9-platforms">Table 9: platforms</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 45%">
+<col style="width: 12%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Column Name</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>id</code></td>
+<td>Unique identifier for the streaming platform</td>
+<td>Integer</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td><code>platform_name</code></td>
+<td>Name of the streaming platform</td>
+<td>Text</td>
+<td>Amazon Prime</td>
+</tr>
+</tbody>
+</table>
 <p>We use the show_id as our main connecting piece, allowing us to connect our shows table with the various ratings tables, the gtrends table (containing Google Trends data), and the releaseinfo and binned_genres tables.</p>
 <p>Instead of having unique Primary Keys for each table, we primarily use compound keys as unique identifiers for each of our tables. Only the shows and platforms tables have single value primary keys. Every other table has a compound primary key. The compound keys were chosen to have a unique identifier that we could use to identify each row. For example, the netflixtop10 table’s compound key consists of the show_id, date, and season_title. This is because Netflix’s Top 10 data breaks down a show by season, so a single show could appear on the same week’s top 10 list multiple times. An example of this is <em>Bridgerton</em>. The Netflix Top 10 list for the week of June 6, 2024 contains <em>Bridgerton</em> Season 3, <em>Bridgerton</em> Season 2, and <em>Bridgerton</em> Season 1. As such, a compound key of just the show_id and date would not create a unique compound key. Therefore, season_title was also included to differentiate between the different seasons of a show.</p>
 <p>The season_number was included in the compound key of the releaseinfo table for similar reasons; as the release schedule for a show can change over the lifetime of the show, we needed to include the season_number to the compound key alongside the show_id to ensure that each row had a unique identifier.</p>
 <p>Most of the other tables such as gtrends, reaperratings, yearlyratings, and nielsenratings use a compound key of just the date and show_id as they do not differentiate between seasons, and therefore each show would have at maximum one data point per week, making our compound keys unique for these tables.</p>
 <p>The binned_genres table required including both the show_id and the binned_genre as part of the compound key. This is due to the fact that, as mentioned in the <strong>Show Genre</strong> section, there are a small number of shows whose genre listed both ‘comedy’ and ‘drama’, and as such, we classified them as both. Therefore, within the binned_genres table, there are a few show_ids that are repeated, so we must additionally include the binned_genre column in our compound key to ensure that each row is unique.</p>
+</section>
+</section>
 </section>
 <section id="results" class="level1">
 <h1>Results</h1>
