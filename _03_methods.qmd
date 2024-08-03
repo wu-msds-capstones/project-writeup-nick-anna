@@ -32,7 +32,7 @@ The reason that we did not gather Netflix Top 10 data from the TV Grim Reaper is
 
 ### FlixPatrol Yearly Streaming Ratings
 
-FlixPatrol is a movie and TV ratings compiler that provides an API to get lists of ratings, with options to filter by show type, streaming platform, countries, years, and many more options. We gathered the yearly ratings for the eight main streaming platforms that we are analyzing (Amazon Prime, Apple TV, Disney +, HBO Max, Hulu, Netflix, Paramount+, Peacock) for the years of 2021-2024 (which overlaps with our weekly streaming ratings data). We had no real issues getting these into a good format as the API allowed for specifying which columns we were interested in (show, platform, rating, and date), and offered CSV downloads of our queries.
+FlixPatrol is a movie and TV ratings compiler that provides an API to get lists of ratings, with options to filter by show type, streaming platform, countries, years, and many more options. We gathered the yearly ratings for the eight main streaming platforms that we are analyzing (Amazon Prime, Apple TV, Disney+, HBO Max, Hulu, Netflix, Paramount+, Peacock) for the years of 2021-2024 (which overlaps with our weekly streaming ratings data). We had no real issues getting these into a good format as the API allowed for specifying which columns we were interested in (show, platform, rating, and date), and offered CSV downloads of our queries.
 
 ### Show Release Information
 
