@@ -7,6 +7,96 @@ The way that we structured our database tables is shown in the Entity Relationsh
 [![ERD](images/erd.png){width="780"}](images/erd.png)\
 ***Figure 1**: ERD of Database Design and Structure*
 
+## Data Dictionary
+
+### Table 1: shows
+
+| Column Name        | Description                           | Data Type | Example        |
+|--------------------|---------------------------------------|-----------|----------------|
+| `id`               | Unique identifier for the TV show     | Integer   | 28             |
+| `name`             | Name of the show                      | Text      | JuryDuty       |
+| `platform_id`      | Unique identifier for the streaming platform  | Integer    | 1     |
+| `tv_or_movie`      | Whether the content was a TV show or movie | Text | TV             |
+| `genre`            | Genre of the show                     | Text      | Mockumentary   |
+| `miniseries`       | Whether it was a miniseries or not    | Text      | N              |
+| `foreign_language` | Whether it was in a foreign language or not | Text | N             | 
+| `original_content` | Whether it was original content or not  | Boolean | Y              | 
+| `notes`            | Any notes                             | Text      | Freevee        |
+
+### Table 2: gtrends
+
+| Column Name        | Description                           | Data Type | Example        |
+|--------------------|---------------------------------------|-----------|----------------|
+| `show_id`          | Unique identifier for the TV show     | Integer   | 28             |
+| `date`             | Date of the pulled Google Trends number | Date    | 2023-05-07     |
+| `rating`           | Google Trends rating (0-100)          | Integer   | 73             |
+
+### Table 3: nielsenratings
+
+| Column Name        | Description                           | Data Type | Example        |
+|--------------------|---------------------------------------|-----------|----------------|
+| `date`             | Date of the rating                    | Date      | 2021-09-26     |
+| `show_id`          | Unique identifier for the TV show     | Integer   | 108            |
+| `rank`             | Rank for that week (1-10)             | Text      | 5              |
+| `episode_count`    | Number of episodes at the time of the rating  | Integer    | 20    |
+| `minutes_watched`  | Total minutes viewed by persons 2+    | Text      | 311000000      |
+| `platform_id`      | Unique identifier for the streaming platform | Integer | 2         |
+
+### Table 4: reaperratings
+
+| Column Name        | Description                           | Data Type | Example        |
+|--------------------|---------------------------------------|-----------|----------------|
+| `date`             | Date of the rating                    | Date      | 2023-11-19     |
+| `show_id`          | Unique identifier for the TV show     | Integer   | 108            |
+| `rank`             | Rank for that week (1-10)             | Text      | 4              |
+| `platform_id`      | Unique identifier for the streaming platform | Integer | 2         |
+| `runtime`          | Runtime of the show at the time of the rating | Integer | 1471     |
+| `episode_count`    | Number of episodes at the time of the rating  | Integer    | 34    |
+| `minutes_watched`  | Total minutes viewed by persons 2+    | Text      | 150000000      |
+
+### Table 5: yearlyratings
+
+| Column Name        | Description                           | Data Type | Example        |
+|--------------------|---------------------------------------|-----------|----------------|
+| `year`             | Year of the rating                    | Integer   | 2022           |
+| `show_id`          | Unique identifier for the TV show     | Integer   | 108            |
+| `rank`             | Rank for that week (1-10)             | Integer   | 1              |
+| `platform_id`      | Unique identifier for the streaming platform | Integer | 2         |
+| `rating_value_score` | Score calculated based on daily position in chart  | Integer | 307 |
+
+### Table 6: netflixtop10
+
+| Column Name        | Description                           | Data Type | Example        |
+|--------------------|---------------------------------------|-----------|----------------|
+| `show_id`          | Unique identifier for the TV show     | Integer   | 567            |
+| `date`             | Date of the rating                    | Integer   | 2021-07-18     |
+| `rank`             | Rank for that week (1-10)             | Integer   | 3              |
+| `weeks_in_top10`   | Weeks the title has been in top 10    | Integer   | 1              |
+| `season_title`     | Name of the season                    | Text      | Never Have I Ever: Season 2 |
+
+### Table 7: release_info
+
+| Column Name        | Description                           | Data Type | Example        |
+|--------------------|---------------------------------------|-----------|----------------|
+| `show_id`          | Unique identifier for the TV show     | Integer   | 28             |
+| `release_schedule` | Release schedule of the show          | Text      | first four episodes at once, then batches       |
+| `season_number`    | Season of the show                    | Integer   | 1              |
+| `binned_release`   | Binned release schedule               | Text | hybrid              |
+
+### Table 8: binned_genres
+
+| Column Name        | Description                           | Data Type | Example        |
+|--------------------|---------------------------------------|-----------|----------------|
+| `show_id`          | Unique identifier for the TV show     | Integer   | 567            |
+| `binned_genre`     | Binned genre                          | Text      | comedy         |
+
+### Table 9: platforms
+
+| Column Name        | Description                           | Data Type | Example        |
+|--------------------|---------------------------------------|-----------|----------------|
+| `id`               | Unique identifier for the streaming platform | Integer | 1         |
+| `platform_name`    | Name of the streaming platform        | Text      | Amazon Prime   |
+
 We use the show_id as our main connecting piece, allowing us to connect our shows table with the various ratings tables, the gtrends table (containing Google Trends data), and the releaseinfo and binned_genres tables.
 
 Instead of having unique Primary Keys for each table, we primarily use compound keys as unique identifiers for each of our tables. Only the shows and platforms tables have single value primary keys. Every other table has a compound primary key. The compound keys were chosen to have a unique identifier that we could use to identify each row. For example, the netflixtop10 table’s compound key consists of the show_id, date, and season_title. This is because Netflix’s Top 10 data breaks down a show by season, so a single show could appear on the same week’s top 10 list multiple times. An example of this is *Bridgerton*. The Netflix Top 10 list for the week of June 6, 2024 contains *Bridgerton* Season 3, *Bridgerton* Season 2, and *Bridgerton* Season 1. As such, a compound key of just the show_id and date would not create a unique compound key. Therefore, season_title was also included to differentiate between the different seasons of a show.
