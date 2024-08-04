@@ -37,7 +37,7 @@ As **Figure 5** shows, Netflix is far and away the reason why ‘all at once’ 
 
 <br>
 
-We wanted to compare two similar shows that had different release schedules; we chose Prime Video’s Fallout (**Figure 6**) and HBO’s The Last of Us (**Figure 7**). 
+We wanted to compare two similar shows that had different release schedules; we chose Prime Video’s *Fallout* (**Figure 6**) and HBO’s *The Last of Us* (**Figure 7**). 
 
 [![Search interest and Nielsen ranking for Fallout](images/fallout.jpg){width="780"}](images/fallout.jpg)\
 ***Figure 6**:* *Search interest (daily, based on Google Trends) and Nielsen ranking (weekly) for* Fallout*, starting one week before it was released and going until it fell off the Nielsen rankings*
