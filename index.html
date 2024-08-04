@@ -110,13 +110,7 @@ div.csl-indent {
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
   <ul class="collapse">
   <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics">Descriptive Statistics</a></li>
-  <li><a href="#tests-and-definitions" id="toc-tests-and-definitions" class="nav-link" data-scroll-target="#tests-and-definitions">Tests and Definitions</a>
-  <ul class="collapse">
-  <li><a href="#kaplan-meier-curves" id="toc-kaplan-meier-curves" class="nav-link" data-scroll-target="#kaplan-meier-curves">Kaplan-Meier Curves</a></li>
-  <li><a href="#log-rank-tests" id="toc-log-rank-tests" class="nav-link" data-scroll-target="#log-rank-tests">Log Rank Tests</a></li>
-  <li><a href="#xgboost" id="toc-xgboost" class="nav-link" data-scroll-target="#xgboost">XGBoost</a></li>
-  <li><a href="#confusion-matrix" id="toc-confusion-matrix" class="nav-link" data-scroll-target="#confusion-matrix">Confusion Matrix</a></li>
-  </ul></li>
+  <li><a href="#tests-and-definitions" id="toc-tests-and-definitions" class="nav-link" data-scroll-target="#tests-and-definitions">Tests and Definitions</a></li>
   <li><a href="#survival-analysis" id="toc-survival-analysis" class="nav-link" data-scroll-target="#survival-analysis">Survival Analysis</a>
   <ul class="collapse">
   <li><a href="#streaming-platforms" id="toc-streaming-platforms" class="nav-link" data-scroll-target="#streaming-platforms">Streaming Platforms</a></li>
@@ -669,11 +663,13 @@ Data Dictionary - Column Names, Descriptions, Data Types, and Examples (Click to
 <p><a href="images/tv_shows_by_platform.png"><img src="images/tv_shows_by_platform.png" class="img-fluid" width="780" alt="Breakdown of shows in dataset based on Streaming Platform"></a><br>
 <em><strong>Figure 2</strong>: Breakdown of shows in dataset based on Streaming Platform</em></p>
 <p>Looking at the breakdown of shows, it is clear to see that Netflix has considerably more shows in the dataset than any other streaming platform; in fact, it has more than all other platforms combined. This is due to two main reasons. First, Netflix’s Weekly Top 10 data covers a timeframe of 3.5 years, whereas the other platforms Weekly Top 10 data covers around 0.75 years. Therefore, we have an additional 2+ years worth of data for specifically Netflix shows than the other streaming platforms, leading to more shows. Second, Netflix is the most popular streaming platform, and as such, both has the funding to make much more original content than its counterparts and dominates the combined streaming ratings on Nielsen. According to DigitalTrends, Netflix has 270 million monthly subscribers, whereas Hulu, Max, Paramount+, and Apple TV+ all have under 100 million subscribers <span class="citation" data-cites="nickinson2024">(<a href="#ref-nickinson2024" role="doc-biblioref">Nickinson, 2024</a>)</span>. That large of a difference in revenue allows Netflix to create more original content than its competitors. Additionally, as we were only gathering data for shows that appeared on a top 10 list, Netflix’s large subscriber base helped them dominate the Nielsen rankings. And, perhaps most obviously, Netflix is the oldest streaming platform, having been launched in 2007 <span class="citation" data-cites="barnes2019">(<a href="#ref-barnes2019" role="doc-biblioref">Barnes, 2019</a>)</span>. As it is the oldest streaming service, it has also had the most time to create original content.</p>
+<p><br></p>
 <p>The breakdown of shows by binned genre is as follows (<strong>Figure 3</strong>).</p>
 <p><a href="images/tv_shows_by_genre.png"><img src="images/tv_shows_by_genre.png" class="img-fluid" width="780" alt="Breakdown of shows in dataset based on Binned Genre"></a><br>
 <em><strong>Figure 3</strong>: Breakdown of shows in dataset based on binned genre*</em><br>
 <em>*includes the shows that were classified as both comedy and drama as described in Show Genre</em></p>
 <p>The distribution of shows by genre is relatively straightforward and makes sense. Initially, we were surprised by the comparatively low number of comedy shows compared with drama and even docuseries shows. However, we realized that this was due to the fact that the only shows whose data we gathered were shows that were present on a Top 10 Ranking. And as the majority of critically acclaimed TV shows are dramas in some capacity, this difference in genre counts makes sense based on our data collection methods.</p>
+<p><br></p>
 <p>The breakdown of shows by their release schedule is shown in <strong>Figure 4</strong>.</p>
 <p><a href="images/tv_shows_by_schedule.png"><img src="images/tv_shows_by_schedule.png" class="img-fluid" width="780" alt="Breakdown of shows in dataset based on Release Schedule"></a><br>
 <strong>Figure 4</strong>: Breakdown of shows in dataset based on release schedule<em>*<br>
@@ -683,6 +679,8 @@ Data Dictionary - Column Names, Descriptions, Data Types, and Examples (Click to
 <strong>Figure 5</strong>: Breakdown of shows in dataset based on release schedule and streaming platform*<em><br>
 </em>*the shows whose release schedule changed were classified as ‘Changed’ on this graphic*</p>
 <p>As <strong>Figure 5</strong> shows, Netflix is far and away the reason why ‘all at once’ shows dominate the dataset, having over 300 shows with that release schedule. The other streaming platforms have much more of an even distribution, but we will need to be cognizant of the Netflix domination during our analysis.</p>
+<p><br></p>
+<p>We wanted to compare two similar shows that had different release schedules; we chose Prime Video’s Fallout (<strong>Figure 6</strong>) and HBO’s The Last of Us (<strong>Figure 7</strong>).</p>
 <p><a href="images/fallout.jpg"><img src="images/fallout.jpg" class="img-fluid" width="780" alt="Search interest and Nielsen ranking for Fallout"></a><br>
 <em><strong>Figure 6</strong>:</em> <em>Search interest (daily, based on Google Trends) and Nielsen ranking (weekly) for</em> Fallout<em>, starting one week before it was released and going until it fell off the Nielsen rankings</em></p>
 <p><a href="images/tlou.jpg"><img src="images/tlou.jpg" class="img-fluid" width="780" alt="Search interest and Nielsen ranking for The Last of Us"></a><br>
@@ -692,24 +690,24 @@ Data Dictionary - Column Names, Descriptions, Data Types, and Examples (Click to
 <section id="tests-and-definitions" class="level2">
 <h2 class="anchored" data-anchor-id="tests-and-definitions">Tests and Definitions</h2>
 <p>In the process of performing our analysis, we will be utilizing a wide range of different statistical models, tests, and techniques. To ensure clarity and understanding, we have provided these definitions below.</p>
-<section id="kaplan-meier-curves" class="level3">
-<h3 class="anchored" data-anchor-id="kaplan-meier-curves">Kaplan-Meier Curves</h3>
+<section id="kaplan-meier-curves" class="level4">
+<h4 class="anchored" data-anchor-id="kaplan-meier-curves">Kaplan-Meier Curves</h4>
 <p>Kaplan-Meier curves are graphical representations of the survival probability of a given variable. They display how long it takes for an event to happen; oftentimes, this event is a “death”, such as a part breaking or a show ending. They are read as follows: say a Kaplan-Meier curve shows that variable A has a 100% survival rate at time 0, and a 50% survival rate at time 1. That means that, between time 0 and time 1, 50% of the instances of variable A in the dataset did not survive to time 1.</p>
+</section>
 <section id="chi-squared-tests" class="level4">
 <h4 class="anchored" data-anchor-id="chi-squared-tests">Chi-squared Tests</h4>
 <p>Chi-squared tests are statistical tests to determine if the difference between two variables is statistically significant. The test calculates the chi-square statistic, which measures the discrepancy between the observed and expected frequencies. If the chi-square statistic is sufficiently large, the null hypothesis is rejected, indicating a significant association between the variables.</p>
 </section>
-</section>
-<section id="log-rank-tests" class="level3">
-<h3 class="anchored" data-anchor-id="log-rank-tests">Log Rank Tests</h3>
+<section id="log-rank-tests" class="level4">
+<h4 class="anchored" data-anchor-id="log-rank-tests">Log Rank Tests</h4>
 <p>A log rank test is a statistical test to determine whether the survival rates of two or more groups are significantly different. The log-rank test compares the observed number of events (such as deaths or failures) in each group to the expected number of events.</p>
 </section>
-<section id="xgboost" class="level3">
-<h3 class="anchored" data-anchor-id="xgboost">XGBoost</h3>
+<section id="xgboost" class="level4">
+<h4 class="anchored" data-anchor-id="xgboost">XGBoost</h4>
 <p>XGBoost is a Machine Learning model which uses gradient boosted decision trees to help classify data into categories.</p>
 </section>
-<section id="confusion-matrix" class="level3">
-<h3 class="anchored" data-anchor-id="confusion-matrix">Confusion Matrix</h3>
+<section id="confusion-matrix" class="level4">
+<h4 class="anchored" data-anchor-id="confusion-matrix">Confusion Matrix</h4>
 <p>A confusion matrix is a graphical representation of a classification model’s success. It shows the number of true instances of a given category and the number of predicted instances of a given category as a way to represent a model’s accuracy.</p>
 </section>
 </section>
