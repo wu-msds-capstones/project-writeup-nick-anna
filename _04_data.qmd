@@ -8,7 +8,7 @@ The way that we structured our database tables is shown in the Entity Relationsh
 ***Figure 1**: ERD of Database Design and Structure*
 
 ::: {.callout-note collapse="true"}
-## Data Dictionary
+## Data Dictionary - Column Names, Descriptions, Data Types, and Examples (Click to Expand)
 | Column Name        | Description                           | Data Type | Example        |
 |--------------------|---------------------------------------|-----------|----------------|
 | `id`               | Unique identifier for the TV show     | Integer   | 28             |
@@ -20,7 +20,7 @@ The way that we structured our database tables is shown in the Entity Relationsh
 | `foreign_language` | Whether it was in a foreign language or not | Text | N             | 
 | `original_content` | Whether it was original content or not  | Boolean | Y              | 
 | `notes`            | Any notes                             | Text      | Freevee        |
-:Table 1 - shows: Identifying information for each show in dataset
+:Table 1 - **shows**: Identifying information for each show in dataset
 
 <br><br>
 
@@ -29,7 +29,7 @@ The way that we structured our database tables is shown in the Entity Relationsh
 | `show_id`          | Unique identifier for the TV show     | Integer   | 28             |
 | `date`             | Date of the pulled Google Trends number | Date    | 2023-05-07     |
 | `rating`           | Google Trends rating (0-100)          | Integer   | 73             |
-:Table 2 - gtrends: Google Trends data for the last 5 years
+:Table 2 - **gtrends**: Google Trends data for the last 5 years
 
 <br><br>
 
@@ -41,7 +41,7 @@ The way that we structured our database tables is shown in the Entity Relationsh
 | `episode_count`    | Number of episodes at the time of the rating  | Integer    | 20    |
 | `minutes_watched`  | Total minutes viewed by persons 2+    | Text      | 311000000      |
 | `platform_id`      | Unique identifier for the streaming platform | Integer | 2         |
-:Table 3 - nielsenratings: Nielsen ratings for streaming originals
+:Table 3 - **nielsenratings**: Nielsen ratings for streaming originals
 
 <br><br>
 
@@ -54,7 +54,7 @@ The way that we structured our database tables is shown in the Entity Relationsh
 | `runtime`          | Runtime of the show at the time of the rating | Integer | 1471     |
 | `episode_count`    | Number of episodes at the time of the rating  | Integer    | 34    |
 | `minutes_watched`  | Total minutes viewed by persons 2+    | Text      | 150000000      |
-:Table 4 - reaperratings: Nielsen ratings for streaming originals on individual platforms
+:Table 4 - **reaperratings**: Nielsen ratings for streaming originals on individual platforms
 
 <br><br>
 
@@ -65,7 +65,7 @@ The way that we structured our database tables is shown in the Entity Relationsh
 | `rank`             | Rank for that week (1-10)             | Integer   | 1              |
 | `platform_id`      | Unique identifier for the streaming platform | Integer | 2         |
 | `rating_value_score` | Score calculated based on daily position in chart  | Integer | 307 |
-:Table 5 - yearlyratings: FlixPatrol yearly ratings for TV shows
+:Table 5 - **yearlyratings**: FlixPatrol yearly ratings for TV shows
 
 <br><br>
 
@@ -76,7 +76,7 @@ The way that we structured our database tables is shown in the Entity Relationsh
 | `rank`             | Rank for that week (1-10)             | Integer   | 3              |
 | `weeks_in_top10`   | Weeks the title has been in top 10    | Integer   | 1              |
 | `season_title`     | Name of the season                    | Text      | Never Have I Ever: Season 2 |
-:Table 6 - netflixtop10: Netflix top 10 rankings
+:Table 6 - **netflixtop10**: Netflix top 10 rankings
 
 <br><br>
 
@@ -86,7 +86,7 @@ The way that we structured our database tables is shown in the Entity Relationsh
 | `release_schedule` | Release schedule of the show          | Text      | first four episodes at once, then batches       |
 | `season_number`    | Season of the show                    | Integer   | 1              |
 | `binned_release`   | Binned release schedule               | Text | hybrid              |
-:Table 7 - release_info: Release information for shows in dataset
+:Table 7 - **release_info**: Release information for shows in dataset
 
 <br><br>
 
@@ -94,7 +94,7 @@ The way that we structured our database tables is shown in the Entity Relationsh
 |--------------------|---------------------------------------|-----------|----------------|
 | `show_id`          | Unique identifier for the TV show     | Integer   | 567            |
 | `binned_genre`     | Binned genre                          | Text      | comedy         |
-:Table 8 - binned_genres: Binned genres for shows in dataset
+:Table 8 - **binned_genres**: Binned genres for shows in dataset
 
 <br><br>
 
