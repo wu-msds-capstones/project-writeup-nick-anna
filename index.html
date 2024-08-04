@@ -110,6 +110,13 @@ div.csl-indent {
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
   <ul class="collapse">
   <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics">Descriptive Statistics</a></li>
+  <li><a href="#tests-and-definitions" id="toc-tests-and-definitions" class="nav-link" data-scroll-target="#tests-and-definitions">Tests and Definitions</a>
+  <ul class="collapse">
+  <li><a href="#kaplan-meier-curves" id="toc-kaplan-meier-curves" class="nav-link" data-scroll-target="#kaplan-meier-curves">Kaplan-Meier Curves</a></li>
+  <li><a href="#log-rank-tests" id="toc-log-rank-tests" class="nav-link" data-scroll-target="#log-rank-tests">Log Rank Tests</a></li>
+  <li><a href="#xgboost" id="toc-xgboost" class="nav-link" data-scroll-target="#xgboost">XGBoost</a></li>
+  <li><a href="#confusion-matrix" id="toc-confusion-matrix" class="nav-link" data-scroll-target="#confusion-matrix">Confusion Matrix</a></li>
+  </ul></li>
   <li><a href="#survival-analysis" id="toc-survival-analysis" class="nav-link" data-scroll-target="#survival-analysis">Survival Analysis</a>
   <ul class="collapse">
   <li><a href="#streaming-platforms" id="toc-streaming-platforms" class="nav-link" data-scroll-target="#streaming-platforms">Streaming Platforms</a></li>
@@ -118,7 +125,7 @@ div.csl-indent {
   <li><a href="#show-release-schedule-and-genre" id="toc-show-release-schedule-and-genre" class="nav-link" data-scroll-target="#show-release-schedule-and-genre">Show Release Schedule and Genre</a></li>
   <li><a href="#show-release-schedule-and-streaming-platform" id="toc-show-release-schedule-and-streaming-platform" class="nav-link" data-scroll-target="#show-release-schedule-and-streaming-platform">Show Release Schedule and Streaming Platform</a></li>
   </ul></li>
-  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning">Machine Learning***</a></li>
+  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning">Machine Learning</a></li>
   </ul></li>
   <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
   </ul>
@@ -661,7 +668,7 @@ Data Dictionary - Column Names, Descriptions, Data Types, and Examples (Click to
 <p>After gathering all of the data we listed above, we ended up with a dataset that totalled 650 TV shows that were original content on a streaming platform. The breakdown of the shows by streaming platform is in <strong>Figure 2</strong>.</p>
 <p><a href="images/tv_shows_by_platform.png"><img src="images/tv_shows_by_platform.png" class="img-fluid" width="780" alt="Breakdown of shows in dataset based on Streaming Platform"></a><br>
 <em><strong>Figure 2</strong>: Breakdown of shows in dataset based on Streaming Platform</em></p>
-<p>Looking at the breakdown of shows, it is clear to see that Netflix has considerably more shows in the dataset than any other streaming platform; in fact, it has more than all other platforms combined. This is due to two main reasons. First, Netflix’s Weekly Top 10 data covers a timeframe of 3.5 years, whereas the other platforms Weekly Top 10 data covers around 0.75 years. Therefore, we have an additional 2+ years worth of data for specifically Netflix shows than the other streaming platforms, leading to more shows. Second, Netflix is the most popular streaming platform, and as such, both has the funding to make much more original content than its counterparts and dominates the combined streaming ratings on Nielsen. According to DigitalTrends, Netflix has 270 million monthly subscribers, whereas Hulu, Max, Paramount+, and Apple TV+ all have under 100 million subscribers (Nickinson, 2024). That large of a difference in revenue allows Netflix to create more original content than its competitors. Additionally, as we were only gathering data for shows that appeared on a top 10 list, Netflix’s large subscriber base helped them dominate the Nielsen rankings. And, perhaps most obviously, Netflix is the oldest streaming platform, having been launched in 2007 <span class="citation" data-cites="barnes2019">(<a href="#ref-barnes2019" role="doc-biblioref">Barnes, 2019</a>)</span>. As it is the oldest streaming service, it has also had the most time to create original content.</p>
+<p>Looking at the breakdown of shows, it is clear to see that Netflix has considerably more shows in the dataset than any other streaming platform; in fact, it has more than all other platforms combined. This is due to two main reasons. First, Netflix’s Weekly Top 10 data covers a timeframe of 3.5 years, whereas the other platforms Weekly Top 10 data covers around 0.75 years. Therefore, we have an additional 2+ years worth of data for specifically Netflix shows than the other streaming platforms, leading to more shows. Second, Netflix is the most popular streaming platform, and as such, both has the funding to make much more original content than its counterparts and dominates the combined streaming ratings on Nielsen. According to DigitalTrends, Netflix has 270 million monthly subscribers, whereas Hulu, Max, Paramount+, and Apple TV+ all have under 100 million subscribers <span class="citation" data-cites="nickinson2024">(<a href="#ref-nickinson2024" role="doc-biblioref">Nickinson, 2024</a>)</span>. That large of a difference in revenue allows Netflix to create more original content than its competitors. Additionally, as we were only gathering data for shows that appeared on a top 10 list, Netflix’s large subscriber base helped them dominate the Nielsen rankings. And, perhaps most obviously, Netflix is the oldest streaming platform, having been launched in 2007 <span class="citation" data-cites="barnes2019">(<a href="#ref-barnes2019" role="doc-biblioref">Barnes, 2019</a>)</span>. As it is the oldest streaming service, it has also had the most time to create original content.</p>
 <p>The breakdown of shows by binned genre is as follows (<strong>Figure 3</strong>).</p>
 <p><a href="images/tv_shows_by_genre.png"><img src="images/tv_shows_by_genre.png" class="img-fluid" width="780" alt="Breakdown of shows in dataset based on Binned Genre"></a><br>
 <em><strong>Figure 3</strong>: Breakdown of shows in dataset based on binned genre*</em><br>
@@ -681,6 +688,30 @@ Data Dictionary - Column Names, Descriptions, Data Types, and Examples (Click to
 <p><a href="images/tlou.jpg"><img src="images/tlou.jpg" class="img-fluid" width="780" alt="Search interest and Nielsen ranking for The Last of Us"></a><br>
 <em><strong>Figure 7</strong>: Search interest (daily, based on Google Trends) and Nielsen ranking (weekly) for</em> The Last of Us<em>, starting one week before it premiered and going until four weeks after the finale. Nielsen ranking is just for HBO Max and does not include the television channel</em></p>
 <p><strong>Figures 6</strong> and <strong>7</strong> highlight the Google Trends search interest and placement on the Nielsen top 10 streaming rankings for two streaming TV shows, both post-apocalyptic dramas based on video game franchises. <em>Fallout</em> was released in full on Prime Video on April 10, 2024. <em>The Last of Us</em> premiered on HBO (simulcast on HBO Max) on January 15, 2023 and ran until March 12. <em>Fallout</em> was on the Nielsen rankings for 7 weeks, spending 4 of those at #1 before falling to #7. <em>The Last of Us</em> was on the Nielsen rankings for 9 weeks, spending just one week at #1, but fell no farther than #4. Interest for both shows peaked when they premiered, but by a week later interest in <em>Fallout</em> had fallen and it was half as popular; it continued to fall, although showing small peaks. Interest in <em>The Last of Us</em> jumped weekly as new episodes aired, not dipping below the halfway mark until almost a week after the finale.</p>
+</section>
+<section id="tests-and-definitions" class="level2">
+<h2 class="anchored" data-anchor-id="tests-and-definitions">Tests and Definitions</h2>
+<p>In the process of performing our analysis, we will be utilizing a wide range of different statistical models, tests, and techniques. To ensure clarity and understanding, we have provided these definitions below.</p>
+<section id="kaplan-meier-curves" class="level3">
+<h3 class="anchored" data-anchor-id="kaplan-meier-curves">Kaplan-Meier Curves</h3>
+<p>Kaplan-Meier curves are graphical representations of the survival probability of a given variable. They display how long it takes for an event to happen; oftentimes, this event is a “death”, such as a part breaking or a show ending. They are read as follows: say a Kaplan-Meier curve shows that variable A has a 100% survival rate at time 0, and a 50% survival rate at time 1. That means that, between time 0 and time 1, 50% of the instances of variable A in the dataset did not survive to time 1.</p>
+<section id="chi-squared-tests" class="level4">
+<h4 class="anchored" data-anchor-id="chi-squared-tests">Chi-squared Tests</h4>
+<p>Chi-squared tests are statistical tests to determine if the difference between two variables is statistically significant. The test calculates the chi-square statistic, which measures the discrepancy between the observed and expected frequencies. If the chi-square statistic is sufficiently large, the null hypothesis is rejected, indicating a significant association between the variables.</p>
+</section>
+</section>
+<section id="log-rank-tests" class="level3">
+<h3 class="anchored" data-anchor-id="log-rank-tests">Log Rank Tests</h3>
+<p>A log rank test is a statistical test to determine whether the survival rates of two or more groups are significantly different. The log-rank test compares the observed number of events (such as deaths or failures) in each group to the expected number of events.</p>
+</section>
+<section id="xgboost" class="level3">
+<h3 class="anchored" data-anchor-id="xgboost">XGBoost</h3>
+<p>XGBoost is a Machine Learning model which uses gradient boosted decision trees to help classify data into categories.</p>
+</section>
+<section id="confusion-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="confusion-matrix">Confusion Matrix</h3>
+<p>A confusion matrix is a graphical representation of a classification model’s success. It shows the number of true instances of a given category and the number of predicted instances of a given category as a way to represent a model’s accuracy.</p>
+</section>
 </section>
 <section id="survival-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="survival-analysis">Survival Analysis</h2>
@@ -761,8 +792,7 @@ Data Dictionary - Column Names, Descriptions, Data Types, and Examples (Click to
 </section>
 </section>
 <section id="machine-learning" class="level2">
-<h2 class="anchored" data-anchor-id="machine-learning">Machine Learning***</h2>
-<p><em>Note: Section is still a WIP, we hope to improve our model before the final presentation</em></p>
+<h2 class="anchored" data-anchor-id="machine-learning">Machine Learning</h2>
 <p>As we were looking at the yearly ratings table, we came across an interesting find: of all of the shows in the dataset, 9.38% (61/650) had their release schedules changed at some point in the show’s lifetime. Meaning, the show had multiple different release schedules, such as changing from releasing all-at-once to a hybrid release schedule. But of the shows that appeared in the yearly top 10 rankings for each streaming platform, 22% (55/250) had their release schedules changed.</p>
 <p>It’s important to note that there were not 55 unique shows whose schedules were changed in the Yearly Top 10s for Individual Streaming Platforms. Rather, there were 33 unique releases that appeared on a Yearly Top 10 whose schedules changed. The rest of the 55 number came from shows that appeared on the Yearly Top 10 ranking for multiple years. An example of this is the show Reacher, which appeared on the Amazon Prime Video Yearly Top 10 rankings of 2022, 2023, and 2024.</p>
 <p>We were interested in seeing if this difference was statistically significant, so we ran a Chi Square test on these values. Running our Chi Square test, we found that the p value was <strong>7.501e-07</strong> and the Chi-Squared value was <strong>24.482</strong>. As such, we can say that this difference in the number of shows whose release schedules were changed is statistically significant.</p>
@@ -800,6 +830,9 @@ Molla, R., &amp; Kafka, P. (2020). How Netflix Made Breaking Bad a Hit — and W
 </div>
 <div id="ref-moses2023" class="csl-entry" role="listitem">
 Moses, C. (2023). What Your Favorite Streaming Services Will Cost You in 2024. <em>The New York Times</em>. <a href="https://www.nytimes.com/2023/12/29/business/streaming-advertising-2024-netflix-amazon-prime.html">https://www.nytimes.com/2023/12/29/business/streaming-advertising-2024-netflix-amazon-prime.html</a>
+</div>
+<div id="ref-nickinson2024" class="csl-entry" role="listitem">
+Nickinson, P. (2024). The 10 Most Popular Streaming Services, Ranked by Subscriber Count. <em>Digital Trends</em>. <a href="https://www.digitaltrends.com/home-theater/most-popular-streaming-services-by-subscribers/">https://www.digitaltrends.com/home-theater/most-popular-streaming-services-by-subscribers/</a>
 </div>
 <div id="ref-press2021" class="csl-entry" role="listitem">
 Press, J. (2021). One Episode at a Time, Please: Is a Binge Backlash Brewing? <em>Vanity Fair</em>. <a href="https://www.vanityfair.com/hollywood/2021/05/tv-binge-vs-episode-by-episode-backlash">https://www.vanityfair.com/hollywood/2021/05/tv-binge-vs-episode-by-episode-backlash</a>
