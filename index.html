@@ -106,21 +106,7 @@ div.csl-indent {
   <li><a href="#show-genre-and-language-information" id="toc-show-genre-and-language-information" class="nav-link" data-scroll-target="#show-genre-and-language-information">Show Genre and Language Information</a></li>
   <li><a href="#data-ethics" id="toc-data-ethics" class="nav-link" data-scroll-target="#data-ethics">Data Ethics</a></li>
   </ul></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
-  <ul class="collapse">
-  <li><a href="#data-dictionary" id="toc-data-dictionary" class="nav-link" data-scroll-target="#data-dictionary">Data Dictionary</a>
-  <ul class="collapse">
-  <li><a href="#table-1-shows" id="toc-table-1-shows" class="nav-link" data-scroll-target="#table-1-shows">Table 1: shows</a></li>
-  <li><a href="#table-2-gtrends" id="toc-table-2-gtrends" class="nav-link" data-scroll-target="#table-2-gtrends">Table 2: gtrends</a></li>
-  <li><a href="#table-3-nielsenratings" id="toc-table-3-nielsenratings" class="nav-link" data-scroll-target="#table-3-nielsenratings">Table 3: nielsenratings</a></li>
-  <li><a href="#table-4-reaperratings" id="toc-table-4-reaperratings" class="nav-link" data-scroll-target="#table-4-reaperratings">Table 4: reaperratings</a></li>
-  <li><a href="#table-5-yearlyratings" id="toc-table-5-yearlyratings" class="nav-link" data-scroll-target="#table-5-yearlyratings">Table 5: yearlyratings</a></li>
-  <li><a href="#table-6-netflixtop10" id="toc-table-6-netflixtop10" class="nav-link" data-scroll-target="#table-6-netflixtop10">Table 6: netflixtop10</a></li>
-  <li><a href="#table-7-release_info" id="toc-table-7-release_info" class="nav-link" data-scroll-target="#table-7-release_info">Table 7: release_info</a></li>
-  <li><a href="#table-8-binned_genres" id="toc-table-8-binned_genres" class="nav-link" data-scroll-target="#table-8-binned_genres">Table 8: binned_genres</a></li>
-  <li><a href="#table-9-platforms" id="toc-table-9-platforms" class="nav-link" data-scroll-target="#table-9-platforms">Table 9: platforms</a></li>
-  </ul></li>
-  </ul></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
   <ul class="collapse">
   <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics">Descriptive Statistics</a></li>
@@ -210,11 +196,20 @@ div.csl-indent {
 <p>The way that we structured our database tables is shown in the Entity Relationship Diagram of <strong>Figure 1</strong>.</p>
 <p><a href="images/erd.png"><img src="images/erd.png" class="img-fluid" width="780" alt="ERD"></a><br>
 <em><strong>Figure 1</strong>: ERD of Database Design and Structure</em></p>
-<section id="data-dictionary" class="level2">
-<h2 class="anchored" data-anchor-id="data-dictionary">Data Dictionary</h2>
-<section id="table-1-shows" class="level3">
-<h3 class="anchored" data-anchor-id="table-1-shows">Table 1: shows</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Data Dictionary
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <table class="caption-top table">
+<caption>Table 1 - shows: Identifying information for each show in dataset</caption>
 <colgroup>
 <col style="width: 23%">
 <col style="width: 45%">
@@ -286,10 +281,9 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
-</section>
-<section id="table-2-gtrends" class="level3">
-<h3 class="anchored" data-anchor-id="table-2-gtrends">Table 2: gtrends</h3>
+<p><br><br></p>
 <table class="caption-top table">
+<caption>Table 2 - gtrends: Google Trends data for the last 5 years</caption>
 <colgroup>
 <col style="width: 23%">
 <col style="width: 45%">
@@ -325,10 +319,9 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
-</section>
-<section id="table-3-nielsenratings" class="level3">
-<h3 class="anchored" data-anchor-id="table-3-nielsenratings">Table 3: nielsenratings</h3>
+<p><br><br></p>
 <table class="caption-top table">
+<caption>Table 3 - nielsenratings: Nielsen ratings for streaming originals</caption>
 <colgroup>
 <col style="width: 23%">
 <col style="width: 45%">
@@ -382,10 +375,9 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
-</section>
-<section id="table-4-reaperratings" class="level3">
-<h3 class="anchored" data-anchor-id="table-4-reaperratings">Table 4: reaperratings</h3>
+<p><br><br></p>
 <table class="caption-top table">
+<caption>Table 4 - reaperratings: Nielsen ratings for streaming originals on individual platforms</caption>
 <colgroup>
 <col style="width: 23%">
 <col style="width: 45%">
@@ -445,10 +437,9 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
-</section>
-<section id="table-5-yearlyratings" class="level3">
-<h3 class="anchored" data-anchor-id="table-5-yearlyratings">Table 5: yearlyratings</h3>
+<p><br><br></p>
 <table class="caption-top table">
+<caption>Table 5 - yearlyratings: FlixPatrol yearly ratings for TV shows</caption>
 <colgroup>
 <col style="width: 23%">
 <col style="width: 45%">
@@ -496,10 +487,9 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
-</section>
-<section id="table-6-netflixtop10" class="level3">
-<h3 class="anchored" data-anchor-id="table-6-netflixtop10">Table 6: netflixtop10</h3>
+<p><br><br></p>
 <table class="caption-top table">
+<caption>Table 6 - netflixtop10: Netflix top 10 rankings</caption>
 <colgroup>
 <col style="width: 23%">
 <col style="width: 45%">
@@ -547,10 +537,9 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
-</section>
-<section id="table-7-release_info" class="level3">
-<h3 class="anchored" data-anchor-id="table-7-release_info">Table 7: release_info</h3>
+<p><br><br></p>
 <table class="caption-top table">
+<caption>Table 7 - release_info: Release information for shows in dataset</caption>
 <colgroup>
 <col style="width: 23%">
 <col style="width: 45%">
@@ -592,10 +581,9 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
-</section>
-<section id="table-8-binned_genres" class="level3">
-<h3 class="anchored" data-anchor-id="table-8-binned_genres">Table 8: binned_genres</h3>
+<p><br><br></p>
 <table class="caption-top table">
+<caption>Table 8 - binned_genres: Binned genres for shows in dataset</caption>
 <colgroup>
 <col style="width: 23%">
 <col style="width: 45%">
@@ -625,10 +613,9 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
-</section>
-<section id="table-9-platforms" class="level3">
-<h3 class="anchored" data-anchor-id="table-9-platforms">Table 9: platforms</h3>
+<p><br><br></p>
 <table class="caption-top table">
+<caption>Table 9 - platforms: Platforms in dataset</caption>
 <colgroup>
 <col style="width: 23%">
 <col style="width: 45%">
@@ -658,13 +645,14 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+</div>
 <p>We use the show_id as our main connecting piece, allowing us to connect our shows table with the various ratings tables, the gtrends table (containing Google Trends data), and the releaseinfo and binned_genres tables.</p>
 <p>Instead of having unique Primary Keys for each table, we primarily use compound keys as unique identifiers for each of our tables. Only the shows and platforms tables have single value primary keys. Every other table has a compound primary key. The compound keys were chosen to have a unique identifier that we could use to identify each row. For example, the netflixtop10 table’s compound key consists of the show_id, date, and season_title. This is because Netflix’s Top 10 data breaks down a show by season, so a single show could appear on the same week’s top 10 list multiple times. An example of this is <em>Bridgerton</em>. The Netflix Top 10 list for the week of June 6, 2024 contains <em>Bridgerton</em> Season 3, <em>Bridgerton</em> Season 2, and <em>Bridgerton</em> Season 1. As such, a compound key of just the show_id and date would not create a unique compound key. Therefore, season_title was also included to differentiate between the different seasons of a show.</p>
 <p>The season_number was included in the compound key of the releaseinfo table for similar reasons; as the release schedule for a show can change over the lifetime of the show, we needed to include the season_number to the compound key alongside the show_id to ensure that each row had a unique identifier.</p>
 <p>Most of the other tables such as gtrends, reaperratings, yearlyratings, and nielsenratings use a compound key of just the date and show_id as they do not differentiate between seasons, and therefore each show would have at maximum one data point per week, making our compound keys unique for these tables.</p>
 <p>The binned_genres table required including both the show_id and the binned_genre as part of the compound key. This is due to the fact that, as mentioned in the <strong>Show Genre</strong> section, there are a small number of shows whose genre listed both ‘comedy’ and ‘drama’, and as such, we classified them as both. Therefore, within the binned_genres table, there are a few show_ids that are repeated, so we must additionally include the binned_genre column in our compound key to ensure that each row is unique.</p>
-</section>
-</section>
 </section>
 <section id="results" class="level1">
 <h1>Results</h1>
