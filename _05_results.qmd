@@ -9,6 +9,8 @@ After gathering all of the data we listed above, we ended up with a dataset that
 
 Looking at the breakdown of shows, it is clear to see that Netflix has considerably more shows in the dataset than any other streaming platform; in fact, it has more than all other platforms combined. This is due to two main reasons. First, Netflix’s Weekly Top 10 data covers a timeframe of 3.5 years, whereas the other platforms Weekly Top 10 data covers around 0.75 years. Therefore, we have an additional 2+ years worth of data for specifically Netflix shows than the other streaming platforms, leading to more shows. Second, Netflix is the most popular streaming platform, and as such, both has the funding to make much more original content than its counterparts and dominates the combined streaming ratings on Nielsen. According to DigitalTrends, Netflix has 270 million monthly subscribers, whereas Hulu, Max, Paramount+, and Apple TV+ all have under 100 million subscribers [@nickinson2024]. That large of a difference in revenue allows Netflix to create more original content than its competitors. Additionally, as we were only gathering data for shows that appeared on a top 10 list, Netflix’s large subscriber base helped them dominate the Nielsen rankings. And, perhaps most obviously, Netflix is the oldest streaming platform, having been launched in 2007 [@barnes2019]. As it is the oldest streaming service, it has also had the most time to create original content.
 
+<br>
+
 The breakdown of shows by binned genre is as follows (**Figure 3**).
 
 [![Breakdown of shows in dataset based on Binned Genre](images/tv_shows_by_genre.png){width="780"}](images/tv_shows_by_genre.png)\
@@ -16,6 +18,8 @@ The breakdown of shows by binned genre is as follows (**Figure 3**).
 *\*includes the shows that were classified as both comedy and drama as described in Show Genre*
 
 The distribution of shows by genre is relatively straightforward and makes sense. Initially, we were surprised by the comparatively low number of comedy shows compared with drama and even docuseries shows. However, we realized that this was due to the fact that the only shows whose data we gathered were shows that were present on a Top 10 Ranking. And as the majority of critically acclaimed TV shows are dramas in some capacity, this difference in genre counts makes sense based on our data collection methods.
+
+<br>
 
 The breakdown of shows by their release schedule is shown in **Figure 4**.
 
@@ -31,6 +35,10 @@ The breakdown of shows is heavily skewed towards the ‘all at once’ shows. Th
 
 As **Figure 5** shows, Netflix is far and away the reason why ‘all at once’ shows dominate the dataset, having over 300 shows with that release schedule. The other streaming platforms have much more of an even distribution, but we will need to be cognizant of the Netflix domination during our analysis.
 
+<br>
+
+We wanted to compare two similar shows that had different release schedules; we chose Prime Video’s Fallout (**Figure 6**) and HBO’s The Last of Us (**Figure 7**). 
+
 [![Search interest and Nielsen ranking for Fallout](images/fallout.jpg){width="780"}](images/fallout.jpg)\
 ***Figure 6**:* *Search interest (daily, based on Google Trends) and Nielsen ranking (weekly) for* Fallout*, starting one week before it was released and going until it fell off the Nielsen rankings*
 
@@ -42,19 +50,19 @@ As **Figure 5** shows, Netflix is far and away the reason why ‘all at once’ 
 ## Tests and Definitions
 In the process of performing our analysis, we will be utilizing a wide range of different statistical models, tests, and techniques. To ensure clarity and understanding, we have provided these definitions below.
 
-### Kaplan-Meier Curves
+#### Kaplan-Meier Curves
 Kaplan-Meier curves are graphical representations of the survival probability of a given variable. They display how long it takes for an event to happen; oftentimes, this event is a “death”, such as a part breaking or a show ending. They are read as follows: say a Kaplan-Meier curve shows that variable A has a 100% survival rate at time 0, and a 50% survival rate at time 1. That means that, between time 0 and time 1, 50% of the instances of variable A in the dataset did not survive to time 1. 
 
 #### Chi-squared Tests
 Chi-squared tests are statistical tests to determine if the difference between two variables is statistically significant. The test calculates the chi-square statistic, which measures the discrepancy between the observed and expected frequencies. If the chi-square statistic is sufficiently large, the null hypothesis is rejected, indicating a significant association between the variables.
 
-### Log Rank Tests
+#### Log Rank Tests
 A log rank test is a statistical test to determine whether the survival rates of two or more groups are significantly different. The log-rank test compares the observed number of events (such as deaths or failures) in each group to the expected number of events. 
 
-### XGBoost
+#### XGBoost
 XGBoost is a Machine Learning model which uses gradient boosted decision trees to help classify data into categories. 
 
-### Confusion Matrix
+#### Confusion Matrix
 A confusion matrix is a graphical representation of a classification model’s success. It shows the number of true instances of a given category and the number of predicted instances of a given category as a way to represent a model’s accuracy.
 
 ## Survival Analysis
