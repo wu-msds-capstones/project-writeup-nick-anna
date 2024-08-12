@@ -1,3 +1,7 @@
+---
+lightbox: true
+---
+
 # Analysis
 Our analysis includes exploratory data analysis, a case study, survival analysis, and a machine learning model.
 
