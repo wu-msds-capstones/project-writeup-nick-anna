@@ -6,7 +6,7 @@ lightbox: true
 
 We decided to store our data in third normal form (3NF), and as such, assigned unique ID numbers to each show and streaming platform in the ratings. The most time consuming and tedious part of the project was in getting all of the show titles in a consistent format so that we could assign them all IDs. Many shows were listed in multiple different ways in the various ratings; for example, the Netflix show *Formula 1: Drive to Survive* was in the datasets as ‘Formula 1: Drive to Survive’, ‘FORMULA 1: DRIVE SURVIVE’, and ‘Formula One: Drive...’. This was true for many of the shows in the various datasets, so in order to ensure consistency for joining purposes, we went through the datasets and set each show name to a consistent format. This ended up being a pretty considerable effort, taking a few days’ worth of work to complete. But once we were finished, we were able to easily and consistently join our datasets together and change the show names to show ids.
 
-The way that we structured our database tables is shown in the Entity Relationship Diagram of **Figure 1**.
+The way that we structured our database tables is shown in the Entity Relationship Diagram of [**Figure 1**](#fig-1).
 
 We use the show_id as our main connecting piece, allowing us to connect our shows table with the various ratings tables, the gtrends table (containing Google Trends data), and the releaseinfo and binned_genres tables.
 
@@ -18,7 +18,7 @@ Most of the other tables such as gtrends, reaperratings, yearlyratings, and niel
 
 The binned_genres table required including both the show_id and the binned_genre as part of the compound key. This is due to the fact that, as mentioned in the **Show Genre** section, there are a small number of shows whose genre listed both ‘comedy’ and ‘drama’, and as such, we classified them as both. Therefore, within the binned_genres table, there are a few show_ids that are repeated, so we must additionally include the binned_genre column in our compound key to ensure that each row is unique.
 
-[![ERD](images/erd.png){width="780"}](images/erd.png)\
+![ERD](images/erd.png){width="780" .lightbox #fig-1}
 ***Figure 1**: ERD of Database Design and Structure*
 
 ::: {.callout-note collapse="true"}
