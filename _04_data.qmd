@@ -18,7 +18,7 @@ Most of the other tables such as gtrends, reaperratings, yearlyratings, and niel
 
 The binned_genres table required including both the show_id and the binned_genre as part of the compound key. This is due to the fact that, as mentioned in the **Show Genre** section, there are a small number of shows whose genre listed both ‘comedy’ and ‘drama’, and as such, we classified them as both. Therefore, within the binned_genres table, there are a few show_ids that are repeated, so we must additionally include the binned_genre column in our compound key to ensure that each row is unique.
 
-![ERD](images/erd.png){width="780" .lightbox #fig-1}
+![***Figure 1**: ERD of Database Design and Structure*](images/erd.png){width="780" .lightbox #fig-1}
 ***Figure 1**: ERD of Database Design and Structure*
 
 ::: {.callout-note collapse="true"}
