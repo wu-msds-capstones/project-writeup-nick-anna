@@ -13,6 +13,7 @@ format:
 toc: true
 bibliography: references.bib
 csl: apa.csl
+lightbox: true
 ---
 
 {{< include _01_intro.qmd >}}
