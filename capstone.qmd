@@ -1,6 +1,6 @@
 ---
 title: "Slow Drip or All at Once?"
-subtitle: How does the staying power of a television show change based on the release schedule of the show?
+subtitle: How does the staying power of a streaming TV show change based on its release schedule?
 authors:
   - Nick Brooks
   - Anna Clarkson
