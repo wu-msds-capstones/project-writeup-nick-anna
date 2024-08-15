@@ -159,6 +159,7 @@ div.csl-indent {
 <p>In addition to Nielsen’s overall ratings that encompass all of the major streaming platforms, Nielsen also releases weekly top 10 ratings for each streaming platform. The Nielsen top 10 lists for individual streaming platforms came from the TV Grim Reaper on Twitter/X (<a href="https://x.com/TVGrimReaper/status/1787594943994941612">example</a>). The account is run by Bill Gorman, the co-founder of TV by the Numbers. He got the lists from a source who works at a company that subscribes to Nielsen. The TV Grim Reaper posted these screenshots starting from around June 2023 to April of 2024, so we have roughly one year’s worth of data to work with.</p>
 <p>In total, we gathered ratings for the following platforms: Amazon Prime Video, Apple TV+, Disney+ and Hulu. We did not gather data for Netflix (see next section), and did not gather data for Peacock or Paramount+ as these platforms’ top 10 data was not captured by the TV Grim Reaper and we were unable to find any alternative means of collecting this data.</p>
 <p>Screenshots were taken of each tweet, and like the Nielsen weekly ratings, were then fed through the Amazon Textract API from AWS. R was again used to unzip the folders, clean the data, and merge the files together (one for each platform).</p>
+<p>Although we ultimately did not use the TV Grim Reaper data in our analysis, we included it in our methods section because several shows in our dataset appeared on these rankings. Therefore, it was important to acknowledge this source, as it influenced which shows were considered for our study.</p>
 </section>
 <section id="netflix-weekly-top-10-streaming-ratings" class="level3">
 <h3 class="anchored" data-anchor-id="netflix-weekly-top-10-streaming-ratings">Netflix Weekly Top 10 Streaming Ratings</h3>
@@ -1383,7 +1384,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","loop":false});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
