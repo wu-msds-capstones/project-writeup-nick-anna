@@ -62,6 +62,10 @@ We also gathered information on the language of the show. As mentioned above, we
 
 ## Data Ethics
 
-We only looked at shows that were included in the top 10 lists calculated by Nielsen and Netflix, which does not paint a full picture of the streaming landscape, but rather the most popular shows in any given week. We recognize that depending on what's released that week, if there are known and extremely popular shows with new episodes, other shows that may in any other week be included could be pushed down or off the rankings. 
+Our study focuses on shows included in the top 10 lists by Nielsen and Netflix, providing insight into the most popular content rather than a comprehensive view of the entire streaming landscape. This approach acknowledges that the rankings may fluctuate based on the release of highly anticipated shows, which could overshadow other content that might otherwise gain attention in a different week.
 
-There is also bias in the types of people that tend to subscribe to different platforms. Additionally, we want to recognize the cost of streaming services, and that they are not something everyone has access to - the cheapest plans on each service range from \$5.99 (ad-supported Paramount+ or Peacock) to \$15.99 (ad-free HBO Max) a month [@moses2023].
+We also recognize that subscription services come with inherent biases, as the audience demographic varies by platform, influenced by cost and accessibility. Streaming services, ranging from $5.99 (ad-supported Paramount+ or Peacock) to $15.99 (ad-free HBO Max) per month [@moses2023], are not universally accessible, potentially skewing our findings towards a more affluent or tech-savvy audience.
+
+In considering the ethical dimensions of our research, we must consider the potential implications of our findings on the streaming industry. If our study concludes that the all-at-once release model generates more sustained buzz, this could influence platforms to favor this approach, potentially exacerbating binge-watching behavior. While convenient, binge-watching raises concerns about mental and physical health, such as increased screen time, sleep disruption, and the potential for addictive consumption patterns [@northwestern2024].
+
+Furthermore, if streaming platforms were to prioritize all-at-once releases based on our findings, it could lead to unequal opportunities for content creators. Smaller or less mainstream shows might struggle to compete in a landscape where immediate, large-scale engagement becomes the standard measure of success.
