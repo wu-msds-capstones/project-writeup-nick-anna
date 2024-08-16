@@ -137,20 +137,20 @@ div.csl-indent {
 <p>Binge-watching has been around since the late 1990s, but started to gain popularity in the mid- to late 2000s with the availability (and accessibility) of TV shows like <em>Grey’s Anatomy</em> and <em>Breaking Bad</em> on streaming platforms like Netflix, Hulu, and Amazon Prime Video <span class="citation" data-cites="molla2020 thomas2021">(<a href="#ref-molla2020" role="doc-biblioref">Molla &amp; Kafka, 2020</a>; <a href="#ref-thomas2021" role="doc-biblioref">Thomas &amp; Gennis, 2021</a>)</span>. However, it really took off in 2013 when Netflix began releasing original content, starting with <em>House of Cards</em> and followed later that year by <em>Orange is the New Black</em>. Netflix started the practice of releasing all episodes of a season at once, a sharp departure from the standard weekly episodes <span class="citation" data-cites="rumble2018">(<a href="#ref-rumble2018" role="doc-biblioref">Rumble, 2018</a>)</span>. They continue to release most of their content this way, with a few exceptions (<em>Love is Blind</em> and season 3 of <em>Bridgerton</em>, notably). This strategic shift by Netflix not only redefined viewer expectations but also set a precedent that other streaming platforms would soon follow. The public seemed to love it because they could watch at their own pace and didn’t have to wait a week after a mid-season cliff-hanger <span class="citation" data-cites="mcfarland2024">(<a href="#ref-mcfarland2024" role="doc-biblioref">McFarland, 2024</a>)</span>.</p>
 <p>Shows like <em>Succession</em> (2018 - 2023), <em>The Last of Us</em> (2023 - present), and <em>The White Lotus</em> (2021 - present), all of which aired weekly on HBO at the same time they were released on HBO Max (later Max), created intense online discourse and reignited appointment television for an hour each Sunday. This provided not only a way for viewers to connect with each other, but also built momentum and caused the shows to stay in the public discourse for as many weeks as they aired <span class="citation" data-cites="sutton2023">(<a href="#ref-sutton2023" role="doc-biblioref">Sutton, 2023</a>)</span>.</p>
 <p>As more streaming platforms came onto the market, so did more methods of releasing original content. While some shows are still released all at once (the “binge model”), many are released weekly, with some providing two or three episodes to start before transitioning to one episode a week. Some shows will also be released in batches of two episodes every week <span class="citation" data-cites="press2021">(<a href="#ref-press2021" role="doc-biblioref">Press, 2021</a>)</span>. For example, all 3 seasons of <em>The Bear</em> on Hulu have been released all at once, while season 1 of <em>Shogun</em> premiered with the first two episodes at once and then weekly.</p>
-<p>With the rise of social media, platforms like Twitter became an important place to discuss TV shows with fellow viewers and get recommendations, later followed by TikTok. This project will seek to answer the question “<em>Does the release schedule of a show (weekly, in parts, or all at once) impact their staying power?</em>” Of particular interest is how shows perform on weekly Nielsen charts - both overall and by streaming platform - and their interest over time on Google Trends.</p>
+<p>With the rise of social media, platforms like Twitter became an important place to discuss TV shows with fellow viewers and get recommendations, later followed by TikTok. This project will seek to answer the question “<em>Does the release schedule of a show (weekly, in parts, or all at once) impact their staying power?</em>” Of particular interest is how shows perform on weekly Nielsen charts and their interest over time on Google Trends.</p>
 </section>
 <section id="methods" class="level1">
 <h1>Methods</h1>
 <p>In order to answer our question of interest, we had to gather a large amount of data from a wide number of various sources and databases. Unless mentioned otherwise, all of the data that was collected was data specifically about the US. Google Trends data and the ratings data all reflect the United States ratings and values; we decided to exclude worldwide ratings as we are most interested in the US Market.</p>
 <section id="google-trends" class="level3">
 <h3 class="anchored" data-anchor-id="google-trends">Google Trends</h3>
-<p>Google Trends data was collected for each show, movie, or special that appeared on the ratings lists we compiled. This data spans the last five years for each title, irrespective of its original premiere date, to maintain consistency across our dataset. The data was downloaded from the Google Trends website in CSV format, with two columns: Date and Rating. Due to the lack of an API, this process required manual effort, but it ensured precise tracking of interest over time. The ratings are presented on a normalized scale, where 100 represents the peak search interest for the term, and 0 indicates insufficient search volume to meet the reporting threshold.</p>
+<p>Google Trends data was collected for each show, movie, or special that appeared on the ratings lists we compiled. This data spans the last five years for each title, irrespective of its original premiere date, to maintain consistency across our dataset. The data was downloaded from the Google Trends website in CSV format, with two columns: Date and Rating. Due to the lack of an API, this collection process required manual effort, but ensured precise tracking of interest over time. The ratings are presented on a normalized scale, where 100 represents the peak search interest for the term, and 0 indicates insufficient search volume to meet the reporting threshold.</p>
 <p>One challenge was associating the ratings with their respective shows, as the show’s title was not included in the CSV file. We addressed this by naming each CSV file after the show or movie, then adding a column with the file name to match the ratings with the show titles.</p>
 <p>To manage the large number of CSV files, we organized them into folders based on the streaming platforms. For example, the ‘Netflix’ folder contained the Google Trends CSVs for shows like <em>Stranger Things</em>, <em>Bridgerton</em>, and <em>The Crown</em>. We then created an R function to loop through the folders, ingest all the data, append the show’s name to the dataset as a new column, and combine all rows into a single CSV file. This approach consolidated the data into one comprehensive file, streamlining further analysis.</p>
 </section>
 <section id="nielsen-weekly-streaming-ratings" class="level3">
 <h3 class="anchored" data-anchor-id="nielsen-weekly-streaming-ratings">Nielsen Weekly Streaming Ratings</h3>
-<p>Nielsen Weekly Streaming Ratings data was collected from September 2020 onwards, which is as far back as this data is available (see current week <a href="https://www.nielsen.com/data-center/top-ten/">here</a>). Since Nielsen’s website only provides the most recent release without an archive, we sourced the data from Variety articles (<a href="https://variety.com/2024/tv/news/nielsen-top-10-ratings-streaming-1235693657/">example</a>) and TV Grim Reaper’s Twitter/X posts (<a href="https://x.com/TVGrimReaper/status/1751995525032034443">example</a>). We focused specifically on the Top 10 data for Original Content, as our primary interest lies in understanding how a streaming show’s release schedule influences its popularity. Consequently, data on acquired shows, which were originally released through other means (such as on a broadcast TV channel), were not included in our analysis.</p>
+<p>Nielsen weekly streaming ratings data was collected from September 2020 onward, which is as far back as this data is available (see current week <a href="https://www.nielsen.com/data-center/top-ten/">here</a>). Since Nielsen’s website only provides the most recent release without an archive, we sourced the data from Variety articles (<a href="https://variety.com/2024/tv/news/nielsen-top-10-ratings-streaming-1235693657/">example</a>) and TV Grim Reaper’s Twitter/X posts (<a href="https://x.com/TVGrimReaper/status/1751995525032034443">example</a>). We focused specifically on the Top 10 data for Original Content, as our primary interest lies in understanding how a streaming show’s release schedule influences its popularity. Consequently, data on acquired shows, which were originally released through other means (such as on a broadcast TV channel), were not included in our analysis.</p>
 <p>The primary challenge in processing the Nielsen data was its format. We were unable to find a downloadable CSV for the Nielsen data without incurring costs, so we resorted to taking screenshots of the weekly top 10 lists. Each screenshot contained the following details: the week of the the ratings, show rank (1-10), the show’s name, its SVOD Provider (streaming platform), the total number of episodes, and the number of minutes the program was watched in the past week.</p>
 <p>With over 190 screenshots to process, we needed an efficient and accurate data extraction solution. Amazon Textract proved to be the most effective tool, allowing us to convert each processed image into ZIP files containing CSVs. We then used R to unzip the folders, clean the data, and merge the files into a single CSV file. This consolidated file includes all the weekly Nielsen data collected, with an additional column for the date of the rankings to maintain chronological order of the data.</p>
 </section>
@@ -163,7 +163,7 @@ div.csl-indent {
 </section>
 <section id="netflix-weekly-top-10-streaming-ratings" class="level3">
 <h3 class="anchored" data-anchor-id="netflix-weekly-top-10-streaming-ratings">Netflix Weekly Top 10 Streaming Ratings</h3>
-<p>We did not gather Netflix Top 10 data from the TV Grim Reaper because Netflix is the only streaming platform that offers a CSV download of its weekly top 10 history directly (<a href="https://www.netflix.com/tudum/top10/united-states/tv?week=2024-07-21">link</a>). This dataset covers a longer period, going from August 2021 to the present day, and includes detailed information that significantly enhanced the robustness of our analysis. The CSV format includes key variables such as date, ranking, and show name, which were crucial for our study.</p>
+<p>We did not gather Netflix Top 10 data from the TV Grim Reaper as Netflix is the only streaming platform that offers a CSV download of its weekly top 10 history directly (<a href="https://www.netflix.com/tudum/top10/united-states/tv?week=2024-07-21">link</a>). This dataset covers a longer period, going from August 2021 to the present day, and includes detailed information that significantly enhanced the robustness of our analysis. The CSV format includes key variables such as date, ranking, and show name, which were crucial for our study.</p>
 <p>Netflix’s top 10 ratings includes ratings for each individual country where Netflix is available. For our analysis, we filtered the dataset to include only the ratings for the United States. Additionally, since the dataset includes both top 10 ratings for movies and television shows, we filtered out any movies to focus solely on television shows.</p>
 </section>
 <section id="flixpatrol-yearly-streaming-ratings" class="level3">
@@ -175,7 +175,7 @@ div.csl-indent {
 <h3 class="anchored" data-anchor-id="show-release-information">Show Release Information</h3>
 <p>One of the main components of our project is the release schedule of individual shows. To obtain this information, we compiled a list of shows from our dataset and used Wikipedia articles for each platform (<a href="https://en.wikipedia.org/wiki/List_of_Amazon_Prime_Video_original_programming">example</a>) to determine the number of seasons and their release schedules.</p>
 <p>We binned (categorized) the release schedules into three types: all at once, hybrid, and weekly. “All at once” refers to shows where the entire season is released simultaneously, “weekly” indicates episodes are released one per week, and “hybrid” describes a combination of both methods. For example, the first season of <em>Ted Lasso</em> was released with the first three episodes all at once, followed by weekly releases.</p>
-<p>To accurately classify shows like <em>Bridgerton</em>, which changed their release schedules over time, we categorized each season individually. For instance, seasons 1 and 2 of <em>Bridgerton</em> were released all at once, whereas season 3 was released in two four-episode batches. As such, it would be misleading to classify <em>Bridgerton</em> as either a strictly ‘all at once’ or strictly ’hybrid‘ release schedule. This approach ensures precise classification despite variations in release schedules.</p>
+<p>To accurately classify shows like <em>Bridgerton</em>, which have changed their release schedules over time, we categorized each season individually. For instance, seasons 1 and 2 of <em>Bridgerton</em> were released all at once, whereas season 3 was released in two four-episode batches. As such, it would be misleading to classify <em>Bridgerton</em> as either a strictly ‘all at once’ or strictly ’hybrid‘ release schedule. This approach ensures precise classification despite variations in release schedules.</p>
 <p>While Wikipedia’s accuracy could be questioned, it was the most comprehensive and accessible source available for detailed episode release information all on one page, facilitating quicker data collection. Additionally, Wikipedia’s active editorial community helps maintain accuracy, especially on heavily trafficked articles (such as popular TV shows). After evaluating the potential risks, we decided to proceed with Wikipedia as a source of reliable information for our needs.</p>
 <p>We also identified whether each show was original content for the streaming platform or acquired from a third-party source. For instance, <em>Young Sheldon</em> is available on Netflix but was created by and originally aired on CBS. Thus, CBS is the third-party source for <em>Young Sheldon</em>. As our focus was on the release schedules of streaming shows, we excluded acquired content from our analysis.</p>
 </section>
@@ -196,7 +196,7 @@ div.csl-indent {
 <p>Our study focuses on shows included in the top 10 lists by Nielsen and Netflix, providing insight into the most popular content rather than a comprehensive view of the entire streaming landscape. This approach acknowledges that the rankings may fluctuate based on the release of highly anticipated shows, which could overshadow other content that might otherwise gain attention in a different week.</p>
 <p>We also recognize that subscription services come with inherent biases, as the audience demographic varies by platform, influenced by cost and accessibility. Streaming services, ranging from $5.99 (ad-supported Paramount+ or Peacock) to $15.99 (ad-free HBO Max) per month <span class="citation" data-cites="moses2023">(<a href="#ref-moses2023" role="doc-biblioref">Moses, 2023</a>)</span>, are not universally accessible, potentially skewing our findings towards a more affluent or tech-savvy audience.</p>
 <p>In considering the ethical dimensions of our research, we must consider the potential implications of our findings on the streaming industry. If our study concludes that the all-at-once release model generates more sustained buzz, this could influence platforms to favor this approach, potentially exacerbating binge-watching behavior. While convenient, binge-watching raises concerns about mental and physical health, such as increased screen time, sleep disruption, and the potential for addictive consumption patterns <span class="citation" data-cites="northwestern2024">(<a href="#ref-northwestern2024" role="doc-biblioref">Medicine, 2024</a>)</span>.</p>
-<p>Furthermore, if streaming platforms were to prioritize all-at-once releases based on our findings, it could lead to unequal opportunities for content creators. Smaller or less mainstream shows might struggle to compete in a landscape where immediate, large-scale engagement becomes the standard measure of success.</p>
+<p>Furthermore, if streaming platforms were to prioritize all at once releases based on our findings, it could lead to unequal opportunities for content creators. Smaller or less mainstream shows might struggle to compete in a landscape where immediate, large-scale engagement becomes the standard measure of success.</p>
 </section>
 </section>
 <section id="data" class="level1">
@@ -204,7 +204,7 @@ div.csl-indent {
 <p>We decided to store our data in third normal form (3NF), and as such, assigned unique ID numbers to each show and streaming platform in the ratings. The most time consuming and tedious part of the project was in getting all of the show titles in a consistent format so that we could assign them all IDs. Many shows were listed in multiple different ways in the various ratings; for example, the Netflix show <em>Formula 1: Drive to Survive</em> was in the datasets as ‘Formula 1: Drive to Survive’, ‘FORMULA 1: DRIVE SURVIVE’, and ‘Formula One: Drive…’. This was true for many of the shows in the various datasets, so in order to ensure consistency for joining purposes, we went through the datasets and set each show name to a consistent format. This ended up being a pretty considerable effort, taking a few days’ worth of work to complete. But once we were finished, we were able to easily and consistently join our datasets together and change the show names to show ids.</p>
 <p>The way that we structured our database tables is shown in the Entity Relationship Diagram of <a href="#fig-1"><strong>Figure 1</strong></a>.</p>
 <p>We use the show_id as our main connecting piece, allowing us to connect our shows table with the various ratings tables, the gtrends table (containing Google Trends data), and the releaseinfo and binned_genres tables.</p>
-<p>Instead of having unique Primary Keys for each table, we primarily use compound keys as unique identifiers for each of our tables. Only the shows and platforms tables have single value primary keys. Every other table has a compound primary key. The compound keys were chosen to have a unique identifier that we could use to identify each row. For example, the netflixtop10 table’s compound key consists of the show_id, date, and season_title. This is because Netflix’s Top 10 data breaks down a show by season, so a single show could appear on the same week’s top 10 list multiple times. An example of this is <em>Bridgerton</em>. The Netflix Top 10 list for the week of June 6, 2024 contains <em>Bridgerton</em> Season 3, <em>Bridgerton</em> Season 2, and <em>Bridgerton</em> Season 1. As such, a compound key of just the show_id and date would not create a unique compound key. Therefore, season_title was also included to differentiate between the different seasons of a show.</p>
+<p>Instead of having unique Primary Keys for each table, we primarily use compound keys as unique identifiers for each of our tables. Only the shows and platforms tables have single value primary keys. Every other table has a compound primary key. The compound keys were chosen to have a unique identifier that we could use to identify each row. For example, the netflixtop10 table’s compound key consists of the show_id, date, and season_title. This is because Netflix’s top 10 data breaks down a show by season, so a single show could appear on the same week’s top 10 list multiple times. An example of this is <em>Bridgerton</em>. The Netflix top 10 list for the week of June 6, 2024 contains <em>Bridgerton</em> Season 3, <em>Bridgerton</em> Season 2, and <em>Bridgerton</em> Season 1. As such, a compound key of just the show_id and date would not create a unique compound key. Therefore, season_title was also included to differentiate between the different seasons of a show.</p>
 <p>The season_number was included in the compound key of the releaseinfo table for similar reasons; as the release schedule for a show can change over the lifetime of the show, we needed to include the season_number to the compound key alongside the show_id to ensure that each row had a unique identifier.</p>
 <p>Most of the other tables such as gtrends, reaperratings, yearlyratings, and nielsenratings use a compound key of just the date and show_id as they do not differentiate between seasons, and therefore each show would have at maximum one data point per week, making our compound keys unique for these tables.</p>
 <p>The binned_genres table required including both the show_id and the binned_genre as part of the compound key. This is due to the fact that, as mentioned in the <strong>Show Genre</strong> section, there are a small number of shows whose genre listed both ‘comedy’ and ‘drama’, and as such, we classified them as both. Therefore, within the binned_genres table, there are a few show_ids that are repeated, so we must additionally include the binned_genre column in our compound key to ensure that each row is unique.</p>
@@ -224,10 +224,10 @@ Data Dictionary - Column Names, Descriptions, Data Types, and Examples (Click to
 <table class="caption-top table">
 <caption>Table 1 - <strong>shows</strong>: Identifying information for each show in dataset</caption>
 <colgroup>
-<col style="width: 23%">
-<col style="width: 45%">
-<col style="width: 12%">
-<col style="width: 18%">
+<col style="width: 20%">
+<col style="width: 38%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -298,10 +298,10 @@ Data Dictionary - Column Names, Descriptions, Data Types, and Examples (Click to
 <table class="caption-top table">
 <caption>Table 2 - <strong>gtrends</strong>: Google Trends data for the last 5 years</caption>
 <colgroup>
-<col style="width: 23%">
-<col style="width: 45%">
-<col style="width: 12%">
-<col style="width: 18%">
+<col style="width: 20%">
+<col style="width: 38%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -336,10 +336,10 @@ Data Dictionary - Column Names, Descriptions, Data Types, and Examples (Click to
 <table class="caption-top table">
 <caption>Table 3 - <strong>nielsenratings</strong>: Nielsen ratings for streaming originals</caption>
 <colgroup>
-<col style="width: 23%">
-<col style="width: 45%">
-<col style="width: 12%">
-<col style="width: 18%">
+<col style="width: 20%">
+<col style="width: 38%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -392,10 +392,10 @@ Data Dictionary - Column Names, Descriptions, Data Types, and Examples (Click to
 <table class="caption-top table">
 <caption>Table 4 - <strong>reaperratings</strong>: Nielsen ratings for streaming originals on individual platforms</caption>
 <colgroup>
-<col style="width: 23%">
-<col style="width: 45%">
-<col style="width: 12%">
-<col style="width: 18%">
+<col style="width: 20%">
+<col style="width: 38%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -454,10 +454,10 @@ Data Dictionary - Column Names, Descriptions, Data Types, and Examples (Click to
 <table class="caption-top table">
 <caption>Table 5 - <strong>yearlyratings</strong>: FlixPatrol yearly ratings for TV shows</caption>
 <colgroup>
-<col style="width: 23%">
-<col style="width: 45%">
-<col style="width: 12%">
-<col style="width: 18%">
+<col style="width: 20%">
+<col style="width: 38%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -504,10 +504,10 @@ Data Dictionary - Column Names, Descriptions, Data Types, and Examples (Click to
 <table class="caption-top table">
 <caption>Table 6 - <strong>netflixtop10</strong>: Netflix top 10 rankings</caption>
 <colgroup>
-<col style="width: 23%">
-<col style="width: 45%">
-<col style="width: 12%">
-<col style="width: 18%">
+<col style="width: 20%">
+<col style="width: 38%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -554,10 +554,10 @@ Data Dictionary - Column Names, Descriptions, Data Types, and Examples (Click to
 <table class="caption-top table">
 <caption>Table 7 - <strong>release_info</strong>: Release information for shows in dataset</caption>
 <colgroup>
-<col style="width: 23%">
-<col style="width: 45%">
-<col style="width: 12%">
-<col style="width: 18%">
+<col style="width: 20%">
+<col style="width: 38%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -598,10 +598,10 @@ Data Dictionary - Column Names, Descriptions, Data Types, and Examples (Click to
 <table class="caption-top table">
 <caption>Table 8 - <strong>binned_genres</strong>: Binned genres for shows in dataset</caption>
 <colgroup>
-<col style="width: 23%">
-<col style="width: 45%">
+<col style="width: 22%">
+<col style="width: 49%">
+<col style="width: 15%">
 <col style="width: 12%">
-<col style="width: 18%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -630,10 +630,10 @@ Data Dictionary - Column Names, Descriptions, Data Types, and Examples (Click to
 <table class="caption-top table">
 <caption>Table 9 - platforms: Platforms in dataset</caption>
 <colgroup>
-<col style="width: 23%">
-<col style="width: 45%">
-<col style="width: 12%">
-<col style="width: 18%">
+<col style="width: 20%">
+<col style="width: 38%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -673,7 +673,7 @@ Data Dictionary - Column Names, Descriptions, Data Types, and Examples (Click to
 <p><a href="images/tv_shows_by_platform.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure 2: Netflix dominates the dataset with the most total shows"><img src="images/tv_shows_by_platform.png" id="fig-2" class="img-fluid" width="780" alt="Figure 2: Netflix dominates the dataset with the most total shows"></a> <em><strong>Figure 2</strong>: Netflix dominates the dataset with the most total shows</em></p>
 <p><br></p>
 <p>The breakdown of shows by binned genre is as follows (<a href="#fig-3"><strong>Figure 3</strong></a>).</p>
-<p>The distribution of shows by genre apears relatively straightforward and aligns with expectations. Initially, we were surprised by the lower number of comedy shows compared to drama and docuseries. However, this can be attributed to our data collection method, which focused solely on shows featured in the top 10 rankings. Since critically acclaimed TV shows are often dramas, this difference in genre counts makes sense.</p>
+<p>The distribution of shows by genre appears relatively straightforward and aligns with expectations. Initially, we were surprised by the lower number of comedy shows compared to drama and docuseries. However, this can be attributed to our data collection method, which focused solely on shows featured in the top 10 rankings. Since critically acclaimed TV shows are often dramas, this difference in genre counts makes sense.</p>
 <p>Understanding the genre distribution is essential as it may reveal genre-specific trends in how release schedules impact viewer engagement. We categorized the shows by genre because we anticipate that every release schedule will not be appropriate for every type of show. As such, we expect to see a change in the popularity of shows in given release genres depending on the show’s genre.</p>
 <p><a href="images/tv_shows_by_genre.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure 3: Drama shows are the most common genre"><img src="images/tv_shows_by_genre.png" id="fig-3" class="img-fluid" width="780" alt="Figure 3: Drama shows are the most common genre"></a> <em><strong>Figure 3</strong>: Drama shows are the most common genre</em></p>
 <p><br></p>
@@ -685,11 +685,11 @@ Data Dictionary - Column Names, Descriptions, Data Types, and Examples (Click to
 <section id="case-study-fallout-vs.-the-last-of-us" class="level2">
 <h2 class="anchored" data-anchor-id="case-study-fallout-vs.-the-last-of-us">Case Study: <em>Fallout</em> vs.&nbsp;<em>The Last of Us</em></h2>
 <p>We wanted to compare two similar shows with different release schedules: Prime Video’s <em>Fallout</em> and HBO’s <em>The Last of Us</em>. Both are post-apocalyptic dramas based on video game franchises.</p>
-<p><a href="#fig-5"><strong>Figure 5</strong></a> and <a href="#fig-6"><strong>Figure 6</strong></a> illustrate the Google Trends search interest and Nielsen top 10 streaming rankings for these shows. <em>Fallout</em> was released in full on Prime Video on April 10, 2024. Interest in <em>Fallout</em> peaked at its premiere but declined sharply within a week, droppping to half its peak popularity. The show’s interest continued to decline, though it exhibited occasional small peaks.</p>
-<p>In contrast, interest in <em>The Last of Us</em>, which premireed on HBO (simulcast on HBO Max) on January 15, 2023, and concluded on March 12, jumped weekly as new episodes aired, maintaining high interest levels. The show’s interest did not dip below the halfway mark until nearly a week after the finale.</p>
+<p><a href="#fig-5"><strong>Figure 5</strong></a> and <a href="#fig-6"><strong>Figure 6</strong></a> illustrate the Google Trends search interest and Nielsen top 10 streaming rankings for these shows. <em>Fallout</em> was released in full on Prime Video on April 10, 2024. Interest in <em>Fallout</em> peaked at its premiere but declined sharply within a week, dropping to half its peak popularity. The show’s interest continued to decline, though it exhibited occasional small peaks.</p>
+<p>In contrast, interest in <em>The Last of Us</em> - which premiered on HBO (simulcast on HBO Max) on January 15, 2023, and concluded on March 12 - jumped weekly as new episodes aired, maintaining high interest levels. The show’s interest did not dip below the halfway mark until nearly a week after the finale.</p>
 <p><em>Fallout</em> appeared on the Nielsen rankings for 7 weeks, spending 4 of those at #1 before dropping to #7. <em>The Last of Us</em> was ranked on Nielsen for 9 weeks, achieving the #1 spot for just one week, but never falling below #4.</p>
-<p><a href="images/fallout_tlou_gtrends.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure 5: Search interest (daily, based on Google Trends) for Fallout* and The Last of Us, starting one week before it was released and going until it fell off the Nielsen rankings*"><img src="images/fallout_tlou_gtrends.jpg" id="fig-5" class="img-fluid" width="780" alt="Figure 5: Search interest (daily, based on Google Trends) for Fallout* and The Last of Us, starting one week before it was released and going until it fell off the Nielsen rankings*"></a> <em><strong>Figure 5</strong>:</em> <em>Search interest (daily, based on Google Trends) for </em>Fallout* and <em>The Last of Us</em>, starting one week before it was released and going until it fell off the Nielsen rankings*</p>
-<p><a href="images/fallout_tlou_rank.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure 6: Search interest (daily, based on Google Trends) and Nielsen ranking (weekly) for The Last of Us, starting one week before it premiered and going until four weeks after the finale. Nielsen ranking is just for HBO Max and does not include the television channel"><img src="images/fallout_tlou_rank.jpg" id="fig-6" class="img-fluid" width="780" alt="Figure 6: Search interest (daily, based on Google Trends) and Nielsen ranking (weekly) for The Last of Us, starting one week before it premiered and going until four weeks after the finale. Nielsen ranking is just for HBO Max and does not include the television channel"></a> <em><strong>Figure 6</strong>: Search interest (daily, based on Google Trends) and Nielsen ranking (weekly) for </em>The Last of Us<em>, starting one week before it premiered and going until four weeks after the finale. Nielsen ranking is just for HBO Max and does not include the television channel</em></p>
+<p><a href="images/fallout_tlou_gtrends.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure 5: Search interest (daily, based on Google Trends) for Fallout and The Last of Us, starting one week before it was released and going until it fell off the Nielsen rankings"><img src="images/fallout_tlou_gtrends.jpg" id="fig-5" class="img-fluid" width="780" alt="Figure 5: Search interest (daily, based on Google Trends) for Fallout and The Last of Us, starting one week before it was released and going until it fell off the Nielsen rankings"></a> <em><strong>Figure 5</strong>:</em> <em>Search interest (daily, based on Google Trends) for</em> Fallout <em>and</em> The Last of Us<em>, starting one week before they were released and going until it fell off the Nielsen rankings</em></p>
+<p><a href="images/fallout_tlou_rank.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure 6: Nielsen ranking (weekly) for Fallout and The Last of Us, starting one week before it premiered and going until four weeks after the finale. Nielsen ranking is just for HBO Max and does not include the television channel"><img src="images/fallout_tlou_rank.jpg" id="fig-6" class="img-fluid" width="780" alt="Figure 6: Nielsen ranking (weekly) for Fallout and The Last of Us, starting one week before it premiered and going until four weeks after the finale. Nielsen ranking is just for HBO Max and does not include the television channel"></a> <em><strong>Figure 6</strong>: Nielsen rankings (weekly) for</em> Fallout <em>and</em> The Last of Us <em>(just for HBO Max and does not include the television channel)</em></p>
 </section>
 <section id="tests-and-definitions" class="level2">
 <h2 class="anchored" data-anchor-id="tests-and-definitions">Tests and Definitions</h2>
@@ -729,7 +729,7 @@ Data Dictionary - Column Names, Descriptions, Data Types, and Examples (Click to
 <p>We first decided to look at the show’s streaming platform, to see if that had any significant impact on the length of time of a show’s popularity (<a href="#fig-7"><strong>Figure 7</strong></a>).</p>
 <p>As the Kaplan-Meier curve in <a href="#fig-7"><strong>Figure 7</strong></a> shows, there is some difference between the streaming platforms. The two worst performing streaming platforms in terms of sustaining popularity are Peacock and Disney+. Peacock significantly lags behind other platforms, likely due to its relative unpopularity and recent entry into the market. Peacock is the newest of all the streaming platforms tested, launching in July of 2020 <span class="citation" data-cites="comcast">(<a href="#ref-comcast" role="doc-biblioref">Comcast, 2020</a>)</span>. As such, it has not had the time to build up an audience or a reputation as a platform with good original programming. Disney+ is a more interesting example. Disney+ is a very popular streaming platform, but not very good at creating original content that sustains popularity. We hypothesize that this highlights the strengths of Disney+: the catalog of Disney content. Disney+ houses all sorts of Disney Channel shows, <em>Star Wars</em> films, and Marvel films, all of which could be argued are the main draw of Disney+ as a platform, not their original content.</p>
 <p>To determine the statistical significance of the survival times by genre, we ran a log rank test. Running the log rank test gave us a p value of <strong>&lt;2e-16</strong>. As such, we can say with confidence that a show’s streaming platform is a significant influence on how the show’s popularity is sustained over time.</p>
-<p><a href="images/survival_curve_platform.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure 7: Not all streaming platforms sustain popularity equally; Disney+ and Peacock’s original programming dies in popularity after only 20 weeks, whereas Amazon Video and Netflix sustain their popularity past 200 weeks"><img src="images/survival_curve_platform.png" id="fig-7" class="img-fluid" width="780" alt="Figure 7: Not all streaming platforms sustain popularity equally; Disney+ and Peacock’s original programming dies in popularity after only 20 weeks, whereas Amazon Video and Netflix sustain their popularity past 200 weeks"></a> <em><strong>Figure 7</strong>: Not all streaming platforms sustain popularity equally; Disney+ and Peacock’s original programming dies in popularity after only 20 weeks, whereas Amazon Video and Netflix sustain their popularity past 200 weeks</em></p>
+<p><a href="images/survival_curve_platform.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure 7: Not all streaming platforms sustain popularity equally; Disney+ and Peacock’s original programming dies in popularity after only 20 weeks, whereas Amazon Video and Netflix sustain their popularity past 200 weeks"><img src="images/survival_curve_platform.png" id="fig-7" class="img-fluid" width="780" alt="Figure 7: Not all streaming platforms sustain popularity equally; Disney+ and Peacock’s original programming dies in popularity after only 20 weeks, whereas Amazon Video and Netflix sustain their popularity past 200 weeks"></a> <em><strong>Figure 7</strong>: Not all streaming platforms sustain popularity equally; Disney+ and Peacock’s original programming dies in popularity after only 20 weeks, whereas Prime Video and Netflix sustain their popularity past 200 weeks</em></p>
 </section>
 <section id="genre" class="level3">
 <h3 class="anchored" data-anchor-id="genre">Genre</h3>
@@ -1392,7 +1392,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"openEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
