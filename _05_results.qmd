@@ -1,1 +1,163 @@
-# Results
+---
+lightbox: true
+---
+
+# Analysis
+
+Our analysis includes exploratory data analysis, a case study, survival analysis, and a machine learning model.
+
+## Exploratory Data Analysis
+
+After gathering all of the data listed above, we ended up with a dataset comprising 684 TV shows that are original content on streaming platforms. The breakdown of the shows by streaming platform is shown in [**Figure 2**](#fig-2).
+
+The dataset reveals a notable dominance of Netflix, which has significantly more shows than any other platform - in fact, more than all other platforms combined. This discrepancy can be attributed to two main factors. First, Netflix’s weekly top 10 data spans 3.5 years, compared to approximately 0.75 years for the other platforms. This additional 2+ years worth of data contributes to the larger number of Netflix shows. Second, Netflix's status as the most popular streaming platform enables it to produce more original content due to greater funding and resources. DigitalTrends reports that Netflix has 270 million monthly subscribers, whereas Hulu, Max, Paramount+, and Apple TV+ all have under 100 million subscribers [@nickinson2024]. This substantial difference in revenue allows Netflix to invest more in original content and achieve higher Nielsen ratings. Additionally, Netflix's longer history as the oldest streaming platform, having been launched in 2007 [@barnes2019], has afforded it more time to develop a vast library original content.
+
+This prominence of Netflix in our dataset will likely influence the results, potentially skewing them in favor of what is most successful for Netflix. This is something that we need to be aware of during our analysis.
+
+![Figure 2: Netflix dominates the dataset with the most total shows](images/tv_shows_by_platform.png){#fig-2 .lightbox width="780"} ***Figure 2**: Netflix dominates the dataset with the most total shows*
+
+<br>
+
+The breakdown of shows by binned genre is as follows ([**Figure 3**](#fig-3)).
+
+The distribution of shows by genre appears relatively straightforward and aligns with expectations. Initially, we were surprised by the lower number of comedy shows compared to drama and docuseries. However, this can be attributed to our data collection method, which focused solely on shows featured in the top 10 rankings. Since critically acclaimed TV shows are often dramas, this difference in genre counts makes sense.
+
+Understanding the genre distribution is essential as it may reveal genre-specific trends in how release schedules impact viewer engagement. We categorized the shows by genre because we anticipate that every release schedule will not be appropriate for every type of show. As such, we expect to see a change in the popularity of shows in given release genres depending on the show’s genre.
+
+![Figure 3: Drama shows are the most common genre](images/tv_shows_by_genre.png){#fig-3 .lightbox width="780"} ***Figure 3**: Drama shows are the most common genre*
+
+<br>
+
+The breakdown of shows by their release schedule is shown in [**Figure 4**](#fig-4).
+
+As [**Figure 4**](#fig-4) shows, Netflix is far and away the reason why ‘all at once’ shows dominate the dataset, having over 300 shows with that release schedule. The other streaming platforms have much more of an even distribution, but we will need to be cognizant of the Netflix domination during our analysis.
+
+![Figure 4: Netflix spearheads the all-at-once release type (the shows whose release schedule changed were classified as ‘Changed’ on this graphic)](images/shows_by_schedule_platform.png){#fig-4 .lightbox width="780"} ***Figure 4**: Netflix spearheads the all-at-once release type (the shows whose release schedule changed were classified as ‘Changed’ on this graphic)*
+
+<br>
+
+## Case Study: *Fallout* vs. *The Last of Us*
+
+We wanted to compare two similar shows with different release schedules: Prime Video’s *Fallout* and HBO’s *The Last of Us*. Both are post-apocalyptic dramas based on video game franchises.
+
+[**Figure 5**](#fig-5) and [**Figure 6**](#fig-6) illustrate the Google Trends search interest and Nielsen top 10 streaming rankings for these shows. *Fallout* was released in full on Prime Video on April 10, 2024. Interest in *Fallout* peaked at its premiere but declined sharply within a week, dropping to half its peak popularity. The show's interest continued to decline, though it exhibited occasional small peaks.
+
+In contrast, interest in *The Last of Us* - which premiered on HBO (simulcast on HBO Max) on January 15, 2023, and concluded on March 12 - jumped weekly as new episodes aired, maintaining high interest levels. The show's interest did not dip below the halfway mark until nearly a week after the finale.
+
+*Fallout* appeared on the Nielsen rankings for 7 weeks, spending 4 of those at #1 before dropping to #7. *The Last of Us* was ranked on Nielsen for 9 weeks, achieving the #1 spot for just one week, but never falling below #4.
+
+![Figure 5: Search interest (daily, based on Google Trends) for Fallout and The Last of Us, starting one week before it was released and going until it fell off the Nielsen rankings](images/fallout_tlou_gtrends.jpg){#fig-5 .lightbox width="780"} ***Figure 5**:* *Search interest (daily, based on Google Trends) for* Fallout *and* The Last of Us*, starting one week before they were released and going until it fell off the Nielsen rankings*
+
+![Figure 6: Nielsen ranking (weekly) for Fallout and The Last of Us, starting one week before it premiered and going until four weeks after the finale. Nielsen ranking is just for HBO Max and does not include the television channel](images/fallout_tlou_rank.jpg){#fig-6 .lightbox width="780"} ***Figure 6**: Nielsen rankings (weekly) for* Fallout *and* The Last of Us *(just for HBO Max and does not include the television channel)*
+
+## Tests and Definitions
+
+In the process of performing our analysis, we will be utilizing a wide range of different statistical models, tests, and techniques. To ensure clarity and understanding, we have provided these definitions below.
+
+Kaplan-Meier Curves
+
+:   Kaplan-Meier curves graphically represent the survival probability of a particular variable over time. They display how long it takes for an event to happen; oftentimes, this event is a “death”, such as a part breaking or a show ending. They are read as follows: say a Kaplan-Meier curve shows that variable A has a 100% survival rate at time 0, and a 50% survival rate at time 1. That means that, between time 0 and time 1, 50% of the instances of variable A in the dataset did not survive to time 1.
+
+:   If there is a vertical line present, that indicates censored data. Censored data indicates an observation that has yet to encounter “death”. In the example of a survival curve of how long it takes for a part to break, if a part was observed for one week and did not break, then it would be represented as a single vertical line at the one week mark, indicating that the observation was censored at that point, as observations ended. In our graphs, which demonstrate how long it took for a show to go from Maximum Google Trends rating of 100 to Minimum Google Trends rating of 0, censored data means that the show has hit its maximum rating but has yet to go back down to 0 rating (implying ongoing popularity).
+
+Chi-squared Tests
+
+:   Chi-squared tests determine if the observed differences between two variables are statistically significant. The test calculates the chi-square statistic, which measures the discrepancy between the observed and expected frequencies. If the chi-square statistic is sufficiently large, the null hypothesis is rejected, indicating a significant association between the variables.
+
+Log Rank Tests
+
+:   A log rank test is a statistical test to determine whether the survival rates of two or more groups are significantly different. The log-rank test compares the observed number of events (such as deaths or failures) in each group to the expected number of events.
+
+Ensemble Model
+
+:   An ensemble model is a machine learning classification model that combines the predictions of multiple models to make a more accurate overall decision. It works via a voting majority: if a majority of the models determine that an observation belongs to a given category, then the ensemble model will predict that the observation is part of the category.
+
+Confusion Matrix
+
+:   A confusion matrix is a graphical representation of a classification model’s success. It shows the number of true instances of a given category and the number of predicted instances of a given category as a way to represent a model’s accuracy.
+
+## Survival Analysis
+
+To explore how factors like a show’s release schedule, genre, and streaming platform impact its staying power, we chose survival analysis as the most ideal method.
+
+First and foremost, we needed to identify a way to calculate a show’s staying power. To do this, we decided to use Google Trends data. This was chosen over Nielsen Ratings to simply give us more data points; many shows appear only a single time in the top 10 ranking. On the flip side, using Google Trends data, we have a few hundred data points for every show. As such, we felt that this additional depth would allow for a more consistent proxy for overall popularity. As we have Google Trends data for each show going back over the last 5 years, we determined that using Google Trends to be a proxy for a show’s staying power would be ideal. As a reminder, Google Trends data is normalized on a scale from 0 to 100, with 100 being equal to the time during the past 5 years when the TV show was searched for most often. To calculate the show’s staying power, we decided to look at the number of weeks that it took for a given show to go from a Google Trends rating of 100 (the maximum possible rating) to a rating of 0 (the minimum possible rating). This number essentially determines how long a show ‘survived’ in the public sphere. The great Ernest Hemingway was quoted as saying “Every man has two deaths, when he is buried in the ground and the last time someone says his name” [@hemingway]. In our minds, every show has two deaths, when the last episode airs and the last time someone searches for its title on Google.
+
+### Streaming Platforms
+
+We first decided to look at the show’s streaming platform, to see if that had any significant impact on the length of time of a show’s popularity ([**Figure 7**](#fig-7)).
+
+As the Kaplan-Meier curve in [**Figure 7**](#fig-7) shows, there is some difference between the streaming platforms. The two worst performing streaming platforms in terms of sustaining popularity are Peacock and Disney+. Peacock significantly lags behind other platforms, likely due to its relative unpopularity and recent entry into the market. Peacock is the newest of all the streaming platforms tested, launching in July of 2020 [@comcast]. As such, it has not had the time to build up an audience or a reputation as a platform with good original programming. Disney+ is a more interesting example. Disney+ is a very popular streaming platform, but not very good at creating original content that sustains popularity. We hypothesize that this highlights the strengths of Disney+: the catalog of Disney content. Disney+ houses all sorts of Disney Channel shows, *Star Wars* films, and Marvel films, all of which could be argued are the main draw of Disney+ as a platform, not their original content.
+
+To determine the statistical significance of the survival times by genre, we ran a log rank test. Running the log rank test gave us a p value of **\<2e-16**. As such, we can say with confidence that a show’s streaming platform is a significant influence on how the show’s popularity is sustained over time.
+
+![Figure 7: Not all streaming platforms sustain popularity equally; Disney+ and Peacock’s original programming dies in popularity after only 20 weeks, whereas Amazon Video and Netflix sustain their popularity past 200 weeks](images/survival_curve_platform.png){#fig-7 .lightbox width="780"} ***Figure 7**: Not all streaming platforms sustain popularity equally; Disney+ and Peacock’s original programming dies in popularity after only 20 weeks, whereas Prime Video and Netflix sustain their popularity past 200 weeks*
+
+### Genre
+
+Next, we wanted to look at the genre of a show and how genres affected the shows’ staying power ([**Figure 8**](#fig-8)).
+
+![Figure 8: Comedy shows sustain popularity at higher rates than drama or docuseries shows](images/survival_curve_genre.png){#fig-8 .lightbox width="780"} ***Figure 8**: Comedy shows sustain popularity at higher rates than drama or docuseries shows*
+
+This Kaplan Meier curve tells some interesting stories. First, comedy performs much better than drama and docuseries from around the 10 week to 120 week mark. Meanwhile, docuseries and drama have a nearly identical curve the entire time. This goes counter to what we expected to see, as we thought that drama series would perform better than comedy series, as drama series are often watched “actively” whereas many comedy series are often watched as “comfort watching”. After all, drama and comedy are the two major categories at the Emmy Awards, the premier awards show for TV programming [@emmys]. We also anticipated that these two genres would perform better than docuseries, and that there would be a larger difference in docuseries when compared with comedy or drama, due in part to how the shows are produced.
+
+With a drama or comedy series (i.e. fictional shows), there must be a team of writers constantly working on writing new episodes and trying to keep things fresh and interesting while crafting an overall narrative arc. This is a very effort-intensive and time-consuming activity that is very hard to sustain over a long period of time. On the other hand, docuseries often can recycle the same ideas over and over again with new individuals. As a reminder, docuseries includes shows such as reality shows, game shows, and true crime docuseries. For example, one show in the docuseries category is the dating show *Love is Blind*. What is really different from one season to another other than the contestants? The format is the same, the show’s structure is the same, they just swap out the old contestants for new contestants. This difference makes sustaining a docuseries much easier than sustaining a drama or comedy show.
+
+We ran a log rank test on our genre Kaplan-Meier curve as well, and this test resulted in a p value of **\<2e-16**. As such, we can say that genre absolutely plays a significant role in the sustained popularity of a given show.
+
+### Show Release Schedule
+
+Finally, after seeing how a show’s streaming platform and genre can affect their staying power, we decided to look into the survival probabilities of the different release schedules ([**Figure 9**](#fig-9)).
+
+This graphic provides some interesting insights. First, hybrid release schedules perform by far the worst in the beginning stages. This is interesting, as the different streaming platforms treat this release type differently. On Apple TV+, the hybrid release is essentially the default release type at this point in time, whereas on Netflix, hybrid release schedules are reserved for the most high-performing and popular shows on the platform, such as *Stranger Things* and *Bridgerton*. This likely is the cause for the relative low performance of the hybrid release type.
+
+The all-at-once and weekly release schedules are fairly similar, with just a small difference in the middle section from about week 50-125, where all-at-once release schedules perform better. Interestingly, there’s very little difference between the shows in its first few weeks. We anticipated seeing a larger difference between the weekly and all-at-once releases in the show’s infancy, but there are very few differences detected.
+
+Running a log rank test on the release schedules gives a p value of **\<2e-16**. As the release schedule, genre, and streaming platform are all statistically significant variables influencing popularity, we wanted to see how the combination of release schedule with these other factors influenced their survival probabilities.
+
+![Figure 9: Hybrid releases are the worst performing of all release schedules, whereas all-at-once releases sustain their popularity at higher rates for longer](images/survival_curve_schedule.png){#fig-9 .lightbox width="780"} ***Figure 9**: Hybrid releases are the worst performing of all release schedules, whereas all-at-once releases sustain their popularity at higher rates for longer*
+
+### Show Release Schedule and Genre
+
+We first decided to look at the combination of show release schedule with show genre ([**Figure 10**](#fig-10)).
+
+This graphic offers some interesting insights that the survival curves for genre and release schedule alone could not offer. It is apparent that every release type is not appropriate for every single genre. Weekly releases for comedy and drama shows are the poorest performing combinations when it comes to sustaining popularity. This goes along with our hypothesis that weekly releases are not good for building up a show’s popularity. Surprisingly, docuseries with weekly releases do the best at sustaining popularity. We were surprised by this, as we expected to see a higher popularity of all-at-once docuseries, due in part to their oftentimes low number of episodes and are covering time-sensitive issues. This likely has to do with the fact that there are only 9 total shows that are weekly released docuseries in our dataset, and two of those shows are extremely popular shows: *Last Week Tonight* and *The Grand Tour*. The success of these two shows skew our results a bit.
+
+Drama releases are very interesting to compare. All at once drama releases sustain their popularity at the greatest rates, and hybrid release drama series are the worst at sustaining popularity, with weekly releases falling in the middle. This is contrary to what we hypothesized, thinking that a hybrid release would be the best of both worlds. When in reality, hybrid releases seem to be the worst of both worlds.
+
+Performing a log rank test on the survival curves gives a p value of **\<2e-16**. Therefore, we can say with confidence that the combination of release schedule and genre is statistically significantly impacting the length of time that a show sustains its popularity.
+
+![Figure 10: Not all release schedules are good for all genres; weekly comedy shows are the worst performing of all combinations, whereas weekly docuseries are the best performing of all combos](images/survival_curve_genre_schedule.png){#fig-10 .lightbox width="780"} ***Figure 10**: Not all release schedules are good for all genres; weekly comedy shows are the worst performing of all combinations, whereas weekly docuseries are the best performing of all combos*
+
+### Show Release Schedule and Streaming Platform
+
+We finally wanted to look at the survival probabilities of the different release schedules for each individual streaming platform ([**Figure 11**](#fig-11)).
+
+First and foremost, it’s clear to see that not every release schedule performs equally well for each streaming platform. In fact, we see each individual release schedule represented as both the best possible release schedule and the worst possible release schedule for at least one platform.
+
+Some overall trends of note include that all-at-once releases are the worst performing for 5 out of our 8 streaming platforms. Hybrid and weekly release schedules tend to be the best performing for most platforms, with a few exceptions. Hybrid and all-at-once release schedules are the best for Netflix.
+
+As with our other Kaplan-Meier curves, we performed a log rank test to determine if the results that we are seeing are in fact statistically significant. The log rank test gave us a p value of **\<2e-16**, so we can confirm that these results are statistically significant.
+
+![Figure 11: The ideal release schedule is different depending on the streaming platform](images/survival_curve_schedule_platform.png){#fig-11 .lightbox width="780"} ***Figure 11**: The ideal release schedule is different depending on the streaming platform*
+
+## Machine Learning
+
+As we were looking at the yearly ratings table, we came across an interesting find: of all of the shows in the dataset, 8.91% (61/684) had their release schedules changed at some point in the show’s lifetime. Meaning, the show had multiple different release schedules, such as changing from releasing all-at-once to a hybrid release schedule. These changes occurred for the different seasons of a show. But of the shows that appeared in the yearly top 10 rankings for each streaming platform, 22% (55/250) had their release schedules changed.
+
+We were interested in seeing if the difference in the proportion of shows with changing release schedule types in our overall dataset (61/684) vs shows that appeared in the yearly top 10 ranking for a given streaming platform (55/250) was statistically significant, so we ran a Chi Square test on these values. Running our Chi Square test, we found that the p value was **7.501e-07**. As such, we can say that this difference in the number of shows whose release schedules were changed is statistically significant.
+
+We wanted to delve deeper into the changing release schedules and how those impact the popularity of a show. Therefore, we decided to create a Machine Learning model to predict whether a show appeared in a yearly top 10 ranking. After all, a great sign that a show’s popularity is sustained is that it was one of the 10 most watched shows on the streaming platform over the course of a year.
+
+We decided to use an ensemble model consisting of four different machine learning models: Logistic Regression, Decision Tree Classifier, Random Forest Classifier, and Support Vector Classifier (SVC). These models were selected as they provided a good combination of modeling and performance, and so we felt that having these four models in our ensemble would produce the best results.
+
+We wanted to specifically predict whether a show would appear in a yearly top 10. As such, we needed to balance our class weights. Only a small subset of the total number of shows in our dataset appeared on a yearly top 10, and as such, our class weights were very imbalanced. This led to our initial models having high overall accuracy, but achieving that high accuracy by simply predicting that essentially no shows would be in the top 10. Therefore, we balanced our class weights between those that appeared in a yearly top 10 and those that did not. We recognize and accept that this decision lowers our overall accuracy, but increases our accuracy within the shows that appear in a yearly top 10, which is what we want to predict.
+
+In order to ensure the highest level of accuracy within our model, we performed both a test-train split to create a set of testing data to compare our model against, and we performed a cross validation to ensure that our model was performing consistently across different test groups. Our model used the following variables to predict whether or not a show was in a yearly top 10: genre, foreign language (if the show was in a foreign language or not), miniseries (binary variable of if show is miniseries or not), weeks in Nielsen (the total number of weeks the show appeared in a Nielsen top 10 ranking), and release_changed (whether or not the show’s release schedule changed over the course of its life). We had initially planned on including the show’s release schedule as a variable in this analysis, but ended up pivoting to the release schedule changing. This was due to the statistically significant difference in the proportion of shows in a Yearly Top 10 Ranking vs in the overall dataset whose schedules changed, as we wanted to see just how telling this change truly was.
+
+When we ran our model, we had an overall accuracy of **80.3%**. This accuracy was consistent with our cross validation scores, all of which fell in the range of 78-82% accuracy. Our model returned the following confusion matrix on our test data ([**Figure 12**](#fig-12)).
+
+Our model successfully classified 27 of the 34 total shows in our test dataset that appeared in a yearly top 10 ranking. The model inaccurately predicts that 27 shows would be in a yearly top 10 when in reality they were not in any such top 10 rankings. We accepted this over-predicting as we wanted our model to be as accurate as possible at predicting yearly top 10 shows, and were more concerned with that accuracy than the overall accuracy of the model.
+
+![Figure 12: Our model correctly predicts 27/34 shows that appear in a yearly top 10 ranking (numbers are lower than overall numbers due to splitting our data into a training set and a testing set; this Confusion Matrix reflects the results of our model on the testing data set)](images/machine_learning_model.png){#fig-12 .lightbox width="780"} ***Figure 12**: Our model correctly predicts 27/34 shows that appear in a yearly top 10 ranking (numbers are lower than overall numbers due to splitting our data into a training set and a testing set; this Confusion Matrix reflects the results of our model on the testing data set)*
+
+In order to further improve our model, we would like to introduce other variables such as critical reception and perhaps a sentiment analysis of posts about the show on various social media platforms. With these additional variables, we hope that our model would be even more accurate at predicting whether a show would appear in a yearly top 10 ranking.

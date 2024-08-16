@@ -1,1 +1,78 @@
 # Methods
+
+In order to answer our question of interest, we had to gather a large amount of data from a wide number of various sources and databases. Unless mentioned otherwise, all of the data that was collected was data specifically about the US. Google Trends data and the ratings data all reflect the United States ratings and values; we decided to exclude worldwide ratings as we are most interested in the US Market.
+
+### Google Trends
+
+Google Trends data was collected for each show, movie, or special that appeared on the ratings lists we compiled. This data spans the last five years for each title, irrespective of its original premiere date, to maintain consistency across our dataset. The data was downloaded from the Google Trends website in CSV format, with two columns: Date and Rating. Due to the lack of an API, this collection process required manual effort, but ensured precise tracking of interest over time. The ratings are presented on a normalized scale, 
+where 100 represents the peak search interest for the term, and 0 indicates insufficient search volume to meet the reporting threshold.
+
+One challenge was associating the ratings with their respective shows, as the show’s title was not included in the CSV file. We addressed this by naming each CSV file after the show or movie, then adding a column with the file name to match the ratings with the show titles.
+
+To manage the large number of CSV files, we organized them into folders based on the streaming platforms. For example, the ‘Netflix’ folder contained the Google Trends CSVs for shows like *Stranger Things*, *Bridgerton*, and *The Crown*. We then created an R function to loop through the folders, ingest all the data, append the show’s name to the dataset as a new column, and combine all rows into a single CSV file. This approach consolidated the data into one comprehensive file, streamlining further analysis.
+
+### Nielsen Weekly Streaming Ratings
+
+Nielsen weekly streaming ratings data was collected from September 2020 onward, which is as far back as this data is available (see current week [here](https://www.nielsen.com/data-center/top-ten/)). Since Nielsen’s website only provides the most recent release without an archive, we sourced the data from Variety articles ([example](https://variety.com/2024/tv/news/nielsen-top-10-ratings-streaming-1235693657/)) and TV Grim Reaper’s Twitter/X posts ([example](https://x.com/TVGrimReaper/status/1751995525032034443)). We focused specifically on the Top 10 data for Original Content, as our primary interest lies in understanding how a streaming show’s release schedule influences its popularity. Consequently, data on acquired shows, which were originally released through other means (such as on a broadcast TV channel), were not included in our analysis.
+
+The primary challenge in processing the Nielsen data was its format. We were unable to find a downloadable CSV for the Nielsen data without incurring costs, so we resorted to taking screenshots of the weekly top 10 lists. Each screenshot contained the following details: the week of the the ratings, show rank (1-10), the show’s name, its SVOD Provider (streaming platform), the total number of episodes, and the number of minutes the program was watched in the past week.
+
+With over 190 screenshots to process, we needed an efficient and accurate data extraction solution. Amazon Textract proved to be the most effective tool, allowing us to convert each processed image into ZIP files containing CSVs. We then used R to unzip the folders, clean the data, and merge the files into a single CSV file. This consolidated file includes all the weekly Nielsen data collected, with an additional column for the date of the rankings to maintain chronological order of the data.
+
+### TV Grim Reaper Weekly Streaming Ratings
+
+In addition to Nielsen’s overall ratings, which encompass all major streaming platforms, Nielsen also releases weekly top 10 ratings for each streaming platform. We sourced these Nielsen top 10 lists for individual streaming platforms from the TV Grim Reaper on Twitter/X ([example](https://x.com/TVGrimReaper/status/1787594943994941612)). The account, run by Bill Gorman, co-founder of TV by the Numbers, obtains these lists from a source at a company that subscribes to Nielsen. The TV Grim Reaper posted screenshots of these rankings from June 2023 to April 2024, providing roughly one year’s worth of data.
+
+We gathered ratings for the following platforms: Amazon Prime Video, Apple TV+, Disney+ and Hulu. We did not collect data for Netflix (see next section), and we did not include Peacock or Paramount+ as their top 10 data was not captured by the TV Grim Reaper and we could not find alternative sources for this data.
+
+As with the Nielsen weekly ratings, screenshots of each tweet were processed using the Amazon Textract API from AWS. R was then used to unzip the folders, clean the data, and merge the files for each platform.
+
+Although the TV Grim Reaper data was not used in the final analysis, it played a crucial role in shaping our understanding of streaming-platform specific trends. Several shows in our dataset appeared on these rankings, and the initial inclusion of the data provided valuable context for cross-referencing with other sources. Therefore, it was important to acknowledge this source, as it influenced which shows were considered for our study.
+
+### Netflix Weekly Top 10 Streaming Ratings
+
+We did not gather Netflix Top 10 data from the TV Grim Reaper as Netflix is the only streaming platform that offers a CSV download of its weekly top 10 history directly ([link](https://www.netflix.com/tudum/top10/united-states/tv?week=2024-07-21)). This dataset covers a longer period, going from August 2021 to the present day, and includes detailed information that significantly enhanced the robustness of our analysis. The CSV format includes key variables such as date, ranking, and show name, which were crucial for our study.
+
+Netflix's top 10 ratings includes ratings for each individual country where Netflix is available. For our analysis, we filtered the dataset to include only the ratings for the United States. Additionally, since the dataset includes both top 10 ratings for movies and television shows, we filtered out any movies to focus solely on television shows.
+
+### FlixPatrol Yearly Streaming Ratings
+
+FlixPatrol is a movie and TV ratings compiler that provides an API to retrieve ratings lists with options to filter by show type, streaming platform, country, year, and more. We collected yearly ratings for the eight main streaming platforms analyzed in our study (Amazon Prime, Apple TV+, Disney+, HBO Max, Hulu, Netflix, Paramount+, and Peacock) for the years of 2021-2024, which overlaps with our weekly streaming ratings data. These ratings reflect the total number of minutes watched over the year.
+
+The API’s ability to specify columns (show, platform, rating, and date) and provide CSV downloads made data extraction straightforward. However, we encountered a challenge with obtaining top 10 data for original programming only. Although the API allows filtering by creator, not all streaming platforms could be filtered. To address this, we got the overall top 10 lists for the platforms without specific filters (Peacock and Paramount+), and manually identified original programming by reviewing the lists until we reached ten original shows per year.
+
+### Show Release Information
+
+One of the main components of our project is the release schedule of individual shows. To obtain this information, we compiled a list of shows from our dataset and used Wikipedia articles for each platform ([example](https://en.wikipedia.org/wiki/List_of_Amazon_Prime_Video_original_programming)) to determine the number of seasons and their release schedules.
+
+We binned (categorized) the release schedules into three types: all at once, hybrid, and weekly. "All at once" refers to shows where the entire season is released simultaneously, "weekly" indicates episodes are released one per week, and "hybrid" describes a combination of both methods. For example, the first season of *Ted Lasso* was released with the first three episodes all at once, followed by weekly releases.
+
+To accurately classify shows like *Bridgerton*, which have changed their release schedules over time, we categorized each season individually. For instance, seasons 1 and 2 of *Bridgerton* were released all at once, whereas season 3 was released in two four-episode batches. As such, it would be misleading to classify *Bridgerton* as either a strictly ‘all at once’ or strictly ‘hybrid‘ release schedule. This approach ensures precise classification despite variations in release schedules.
+
+While Wikipedia’s accuracy could be questioned, it was the most comprehensive and accessible source available for detailed episode release information all on one page, facilitating quicker data collection. Additionally, Wikipedia's active editorial community helps maintain accuracy, especially on heavily trafficked articles (such as popular TV shows). After evaluating the potential risks, we decided to proceed with Wikipedia as a source of reliable information for our needs.
+
+We also identified whether each show was original content for the streaming platform or acquired from a third-party source. For instance, *Young Sheldon* is available on Netflix but was created by and originally aired on CBS. Thus, CBS is the third-party source for *Young Sheldon*. As our focus was on the release schedules of streaming shows, we excluded acquired content from our analysis.
+
+### Show Genre and Language Information
+
+Another important variable in our analysis is the genre of a show and its potential impact on popularity. To gather this information, we again relied on Wikipedia, which provides detailed genre classifications. However, genres listed on Wikipedia can be extremely specific. For example, the Amazon Prime Video show *Gen V* is categorized as a ‘superhero teen drama‘, a genre unique to that show in our dataset. Thus, using the exact genres as listed would not be sufficient for our analysis. We decided to simplify the genre classifications by binning them into broader categories.
+
+We binned shows into three main genres: drama, comedy, and docuseries. Any show with a genre included the word *comedy*, *drama*, or *docuseries* was placed into the corresponding category. For the remaining genres, we classified them based on how they best fit into these bins:
+
+-   Docuseries: Includes any genre related to non-fiction or real-world events, such as true crime documentaries, reality competition shows, and game shows.
+-   Drama: Encompasses genres typically associated with dramatic content, such as horror, thriller, and telenovela.
+-   Comedy: Covers genres that are generally lighthearted, including sitcoms, children’s shows, and mockumentaries.
+
+An important caveat is that each show was classified into one of the three genre categories with one exception. Shows listed with both Comedy and Drama genres, such as *The Bear* (a ‘comedy drama‘), were classified into both categories. To avoid duplication in our database, we separated the binned genres into a different table, ensuring each show appears only once in the main shows table.
+
+We also gathered language information for each show. Although we collected ratings specifically for the US, the dataset does includes shows with dialogue primarily in a foreign language. To address this, we collected language data from Wikipedia alongside the genre information.
+
+## Data Ethics
+
+Our study focuses on shows included in the top 10 lists by Nielsen and Netflix, providing insight into the most popular content rather than a comprehensive view of the entire streaming landscape. This approach acknowledges that the rankings may fluctuate based on the release of highly anticipated shows, which could overshadow other content that might otherwise gain attention in a different week.
+
+We also recognize that subscription services come with inherent biases, as the audience demographic varies by platform, influenced by cost and accessibility. Streaming services, ranging from \$5.99 (ad-supported Paramount+ or Peacock) to \$15.99 (ad-free HBO Max) per month [@moses2023], are not universally accessible, potentially skewing our findings towards a more affluent or tech-savvy audience.
+
+In considering the ethical dimensions of our research, we must consider the potential implications of our findings on the streaming industry. If our study concludes that the all-at-once release model generates more sustained buzz, this could influence platforms to favor this approach, potentially exacerbating binge-watching behavior. While convenient, binge-watching raises concerns about mental and physical health, such as increased screen time, sleep disruption, and the potential for addictive consumption patterns [@northwestern2024].
+
+Furthermore, if streaming platforms were to prioritize all at once releases based on our findings, it could lead to unequal opportunities for content creators. Smaller or less mainstream shows might struggle to compete in a landscape where immediate, large-scale engagement becomes the standard measure of success.
